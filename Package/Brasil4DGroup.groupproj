@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{0B0DB02E-1DDA-4D54-84EF-2D6BC017C3FE}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="..\Exemplos\FeriadosNacionais\ExemploFeriadosNacionais.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PkgBrasil4D.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ExemploFeriadosNacionais">
+        <MSBuild Projects="..\Exemplos\FeriadosNacionais\ExemploFeriadosNacionais.dproj"/>
+    </Target>
+    <Target Name="ExemploFeriadosNacionais:Clean">
+        <MSBuild Projects="..\Exemplos\FeriadosNacionais\ExemploFeriadosNacionais.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ExemploFeriadosNacionais:Make">
+        <MSBuild Projects="..\Exemplos\FeriadosNacionais\ExemploFeriadosNacionais.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PkgBrasil4D">
+        <MSBuild Projects="PkgBrasil4D.dproj"/>
+    </Target>
+    <Target Name="PkgBrasil4D:Clean">
+        <MSBuild Projects="PkgBrasil4D.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PkgBrasil4D:Make">
+        <MSBuild Projects="PkgBrasil4D.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ExemploFeriadosNacionais;PkgBrasil4D"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ExemploFeriadosNacionais:Clean;PkgBrasil4D:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ExemploFeriadosNacionais:Make;PkgBrasil4D:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

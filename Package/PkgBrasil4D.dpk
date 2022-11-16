@@ -1,0 +1,53 @@
+package PkgBrasil4D;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS ON}
+{$RANGECHECKS ON}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  bindengine,
+  CustomIPTransport,
+  IndyIPCommon,
+  IndySystem,
+  IndyProtocols,
+  IndyCore,
+  IndyIPClient,
+  bindcomp,
+  RESTComponents;
+
+contains
+  Brasil4D.Helper.DateTime in '..\Source\Core\Brasil4D.Helper.DateTime.pas',
+  Brasil4D.Helper.JSON in '..\Source\Core\Brasil4D.Helper.JSON.pas',
+  Brasil4D in '..\Source\Core\Brasil4D.pas',
+  Brasil4D.Rest.Base in '..\Source\Core\Brasil4D.Rest.Base.pas',
+  Brasil4D.Rest.RestClient in '..\Source\Core\Brasil4D.Rest.RestClient.pas',
+  Brasil4D.Schemas in '..\Source\Core\Brasil4D.Schemas.pas',
+  Brasil4D.FeriadosNacionais.Schemas in '..\Source\FeriadosNacionais\Brasil4D.FeriadosNacionais.Schemas.pas',
+  Brasil4D.FeriadosNacionais.WebServices in '..\Source\FeriadosNacionais\Brasil4D.FeriadosNacionais.WebServices.pas',
+  Brasil4D.Registry in 'Brasil4D.Registry.pas';
+
+end.

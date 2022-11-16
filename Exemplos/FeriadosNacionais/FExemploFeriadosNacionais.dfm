@@ -23,9 +23,7 @@ object frmFeriadosNacionais: TfrmFeriadosNacionais
     BevelOuter = bvNone
     Caption = 'Feriados Nacionais'
     TabOrder = 0
-    ExplicitLeft = 208
-    ExplicitTop = 208
-    ExplicitWidth = 185
+    ExplicitWidth = 573
   end
   object Panel2: TPanel
     Left = 0
@@ -35,6 +33,7 @@ object frmFeriadosNacionais: TfrmFeriadosNacionais
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 1
+    ExplicitWidth = 573
     object Label1: TLabel
       Left = 16
       Top = 11
@@ -51,11 +50,12 @@ object frmFeriadosNacionais: TfrmFeriadosNacionais
     end
     object btnListar: TButton
       Left = 120
-      Top = 34
+      Top = 37
       Width = 137
       Height = 29
       Caption = 'Listar Feriados'
       TabOrder = 1
+      OnClick = btnListarClick
     end
   end
   object mmoResponse: TMemo
@@ -65,9 +65,12 @@ object frmFeriadosNacionais: TfrmFeriadosNacionais
     Height = 311
     Align = alClient
     TabOrder = 2
-    ExplicitLeft = 208
-    ExplicitTop = 184
-    ExplicitWidth = 185
-    ExplicitHeight = 89
+    ExplicitWidth = 573
+    ExplicitHeight = 310
+  end
+  object Brasil4D1: TBrasil4D
+    BaseUrl = 'https://brasilapi.com.br/api'
+    Left = 424
+    Top = 49
   end
 end

@@ -141,6 +141,7 @@ begin
   FRestRequest.Execute;
   FResponse := TBrasil4DRestResponseClient.Create(FRestResponse);
   Result := FResponse;
+  ClearRequest;
 end;
 
 { TBrasil4DRestResponseClient }
