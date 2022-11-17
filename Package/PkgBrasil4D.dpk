@@ -40,14 +40,6 @@ requires
   RESTComponents;
 
 contains
-  Brasil4D.Helper.DateTime in '..\Source\Core\Brasil4D.Helper.DateTime.pas',
-  Brasil4D.Helper.JSON in '..\Source\Core\Brasil4D.Helper.JSON.pas',
-  Brasil4D in '..\Source\Core\Brasil4D.pas',
-  Brasil4D.Rest.Base in '..\Source\Core\Brasil4D.Rest.Base.pas',
-  Brasil4D.Rest.RestClient in '..\Source\Core\Brasil4D.Rest.RestClient.pas',
-  Brasil4D.Schemas in '..\Source\Core\Brasil4D.Schemas.pas',
-  Brasil4D.FeriadosNacionais.Schemas in '..\Source\FeriadosNacionais\Brasil4D.FeriadosNacionais.Schemas.pas',
-  Brasil4D.FeriadosNacionais.WebServices in '..\Source\FeriadosNacionais\Brasil4D.FeriadosNacionais.WebServices.pas',
   Brasil4D.Registry in 'Brasil4D.Registry.pas',
   Brasil4D.Bank.Schemas in '..\Source\Brasil4D.Bank.Schemas.pas',
   Brasil4D.Bank.WebServices in '..\Source\Brasil4D.Bank.WebServices.pas',
@@ -55,16 +47,24 @@ contains
   Brasil4D.CEP.WebServices in '..\Source\Brasil4D.CEP.WebServices.pas',
   Brasil4D.CEPV2.Schemas in '..\Source\Brasil4D.CEPV2.Schemas.pas',
   Brasil4D.CEPV2.WebServices in '..\Source\Brasil4D.CEPV2.WebServices.pas',
+  Brasil4D.CNPJ.Schemas in '..\Source\Brasil4D.CNPJ.Schemas.pas',
+  Brasil4D.CNPJ.WebServices in '..\Source\Brasil4D.CNPJ.WebServices.pas',
   Brasil4D.Core.Constants in '..\Source\Brasil4D.Core.Constants.pas',
   Brasil4D.Core.Exceptions in '..\Source\Brasil4D.Core.Exceptions.pas',
   Brasil4D.Core.WebServices in '..\Source\Brasil4D.Core.WebServices.pas',
-  Brasil4D.CNPJ.Schemas in '..\Source\Brasil4D.CNPJ.Schemas.pas',
-  Brasil4D.CNPJ.WebServices in '..\Source\Brasil4D.CNPJ.WebServices.pas',
   Brasil4D.DDD.Schemas in '..\Source\Brasil4D.DDD.Schemas.pas',
   Brasil4D.DDD.WebServices in '..\Source\Brasil4D.DDD.WebServices.pas',
+  Brasil4D.FeriadosNacionais.Schemas in '..\Source\Brasil4D.FeriadosNacionais.Schemas.pas',
+  Brasil4D.FeriadosNacionais.WebServices in '..\Source\Brasil4D.FeriadosNacionais.WebServices.pas',
+  Brasil4D.Helper.DateTime in '..\Source\Brasil4D.Helper.DateTime.pas',
+  Brasil4D.Helper.JSON in '..\Source\Brasil4D.Helper.JSON.pas',
+  Brasil4D.ISBN.Schemas in '..\Source\Brasil4D.ISBN.Schemas.pas',
+  Brasil4D.ISBN.WebServices in '..\Source\Brasil4D.ISBN.WebServices.pas',
+  Brasil4D in '..\Source\Brasil4D.pas',
   Brasil4D.RegistroBR.Schemas in '..\Source\Brasil4D.RegistroBR.Schemas.pas',
   Brasil4D.RegistroBR.WebServices in '..\Source\Brasil4D.RegistroBR.WebServices.pas',
-  Brasil4D.ISBN.Schemas in '..\Source\Brasil4D.ISBN.Schemas.pas',
-  Brasil4D.ISBN.WebServices in '..\Source\Brasil4D.ISBN.WebServices.pas';
+  Brasil4D.Rest.Base in '..\Source\Brasil4D.Rest.Base.pas',
+  Brasil4D.Rest.RestClient in '..\Source\Brasil4D.Rest.RestClient.pas',
+  Brasil4D.Schemas in '..\Source\Brasil4D.Schemas.pas';
 
 end.

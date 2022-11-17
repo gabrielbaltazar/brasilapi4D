@@ -1,4 +1,4 @@
-unit FExemploFeriadosNacionais;
+unit FBrasil4DExemplo;
 
 interface
 
@@ -9,7 +9,7 @@ uses
   Brasil4D, Vcl.ComCtrls;
 
 type
-  TfrmFeriadosNacionais = class(TForm)
+  TfrmBrasil4DExemplo = class(TForm)
     Panel1: TPanel;
     Brasil4D1: TBrasil4D;
     pgcBrasilAPI: TPageControl;
@@ -75,13 +75,13 @@ type
   end;
 
 var
-  frmFeriadosNacionais: TfrmFeriadosNacionais;
+  frmBrasil4DExemplo: TfrmBrasil4DExemplo;
 
 implementation
 
 {$R *.dfm}
 
-procedure TfrmFeriadosNacionais.btnBankBuscarClick(Sender: TObject);
+procedure TfrmBrasil4DExemplo.btnBankBuscarClick(Sender: TObject);
 begin
   Brasil4D1.Bank.Busca.Code := StrToIntDef(edtBankCode.Text, 1);
   Brasil4D1.Bank.Busca.Executar;
@@ -93,7 +93,7 @@ begin
   mmoBankResponse.Lines.Add('Full Name: ' + Brasil4D1.Bank.Busca.Retorno.FullName);
 end;
 
-procedure TfrmFeriadosNacionais.btnBankListarClick(Sender: TObject);
+procedure TfrmBrasil4DExemplo.btnBankListarClick(Sender: TObject);
 var
   I: Integer;
 begin
@@ -110,7 +110,7 @@ begin
   end;
 end;
 
-procedure TfrmFeriadosNacionais.btnCEPClick(Sender: TObject);
+procedure TfrmBrasil4DExemplo.btnCEPClick(Sender: TObject);
 begin
   Brasil4D1.CEP.Cep := edtCep.Text;
   Brasil4D1.CEP.Executar;
@@ -124,7 +124,7 @@ begin
   mmoCepResponse.Lines.Add('Service: ' + Brasil4D1.CEP.Retorno.Service);
 end;
 
-procedure TfrmFeriadosNacionais.btnCepV2Click(Sender: TObject);
+procedure TfrmBrasil4DExemplo.btnCepV2Click(Sender: TObject);
 begin
   Brasil4D1.CEPV2.Cep := edtCep.Text;
   Brasil4D1.CEPV2.Executar;
@@ -140,7 +140,7 @@ begin
   mmoCepResponse.Lines.Add('Longitude: ' + Brasil4D1.CEPV2.Retorno.Longitude.ToString);
 end;
 
-procedure TfrmFeriadosNacionais.btnCNPJClick(Sender: TObject);
+procedure TfrmBrasil4DExemplo.btnCNPJClick(Sender: TObject);
 begin
   Brasil4D1.CNPJ.CNPJ := edtCNPJ.Text;
   Brasil4D1.CNPJ.Executar;
@@ -152,7 +152,7 @@ begin
   mmoCNPJResponse.Lines.Add('Cnae Descrição: ' + Brasil4D1.CNPJ.Retorno.CnaeFiscalDescricao);
 end;
 
-procedure TfrmFeriadosNacionais.btnDDDClick(Sender: TObject);
+procedure TfrmBrasil4DExemplo.btnDDDClick(Sender: TObject);
 var
   I: Integer;
 begin
@@ -171,7 +171,7 @@ begin
     mmoDDDResponse.Lines.Add('  ' + Brasil4D1.DDD.Retorno.Cities[I]);
 end;
 
-procedure TfrmFeriadosNacionais.btnISBNClick(Sender: TObject);
+procedure TfrmBrasil4DExemplo.btnISBNClick(Sender: TObject);
 var
   I: Integer;
 begin
@@ -184,7 +184,7 @@ begin
   mmoISBNResponse.Lines.Add('Subtitle: ' + Brasil4D1.ISBN.Retorno.Subtitle);
 end;
 
-procedure TfrmFeriadosNacionais.btnListarClick(Sender: TObject);
+procedure TfrmBrasil4DExemplo.btnListarClick(Sender: TObject);
 var
   I: Integer;
 begin
@@ -200,7 +200,7 @@ begin
   end;
 end;
 
-procedure TfrmFeriadosNacionais.btnRegistroBRClick(Sender: TObject);
+procedure TfrmBrasil4DExemplo.btnRegistroBRClick(Sender: TObject);
 begin
   mmoRegistroBRResponse.Clear;
   Brasil4D1.RegistroBR.Domain := edtDominio.Text;
@@ -212,12 +212,12 @@ begin
   mmoRegistroBRResponse.Lines.Add('Publication Status: ' + Brasil4D1.RegistroBR.Retorno.PublicationStatus);
 end;
 
-destructor TfrmFeriadosNacionais.Destroy;
+destructor TfrmBrasil4DExemplo.Destroy;
 begin
   inherited;
 end;
 
-procedure TfrmFeriadosNacionais.FormCreate(Sender: TObject);
+procedure TfrmBrasil4DExemplo.FormCreate(Sender: TObject);
 begin
   edtAno.Text := IntToStr(YearOf(Now));
 end;

@@ -3,7 +3,7 @@
         <ProjectGuid>{0B0DB02E-1DDA-4D54-84EF-2D6BC017C3FE}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="..\Exemplos\FeriadosNacionais\ExemploFeriadosNacionais.dproj">
+        <Projects Include="..\Exemplos\ExemploBrasil4D.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="PkgBrasil4D.dproj">
@@ -17,14 +17,14 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="ExemploFeriadosNacionais">
-        <MSBuild Projects="..\Exemplos\FeriadosNacionais\ExemploFeriadosNacionais.dproj"/>
+    <Target Name="ExemploBrasil4D">
+        <MSBuild Projects="..\Exemplos\ExemploBrasil4D.dproj"/>
     </Target>
-    <Target Name="ExemploFeriadosNacionais:Clean">
-        <MSBuild Projects="..\Exemplos\FeriadosNacionais\ExemploFeriadosNacionais.dproj" Targets="Clean"/>
+    <Target Name="ExemploBrasil4D:Clean">
+        <MSBuild Projects="..\Exemplos\ExemploBrasil4D.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="ExemploFeriadosNacionais:Make">
-        <MSBuild Projects="..\Exemplos\FeriadosNacionais\ExemploFeriadosNacionais.dproj" Targets="Make"/>
+    <Target Name="ExemploBrasil4D:Make">
+        <MSBuild Projects="..\Exemplos\ExemploBrasil4D.dproj" Targets="Make"/>
     </Target>
     <Target Name="PkgBrasil4D">
         <MSBuild Projects="PkgBrasil4D.dproj"/>
@@ -36,13 +36,13 @@
         <MSBuild Projects="PkgBrasil4D.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="ExemploFeriadosNacionais;PkgBrasil4D"/>
+        <CallTarget Targets="ExemploBrasil4D;PkgBrasil4D"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="ExemploFeriadosNacionais:Clean;PkgBrasil4D:Clean"/>
+        <CallTarget Targets="ExemploBrasil4D:Clean;PkgBrasil4D:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="ExemploFeriadosNacionais:Make;PkgBrasil4D:Make"/>
+        <CallTarget Targets="ExemploBrasil4D:Make;PkgBrasil4D:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

@@ -128,14 +128,6 @@
         <DCCReference Include="IndyIPClient.dcp"/>
         <DCCReference Include="bindcomp.dcp"/>
         <DCCReference Include="RESTComponents.dcp"/>
-        <DCCReference Include="..\Source\Core\Brasil4D.Helper.DateTime.pas"/>
-        <DCCReference Include="..\Source\Core\Brasil4D.Helper.JSON.pas"/>
-        <DCCReference Include="..\Source\Core\Brasil4D.pas"/>
-        <DCCReference Include="..\Source\Core\Brasil4D.Rest.Base.pas"/>
-        <DCCReference Include="..\Source\Core\Brasil4D.Rest.RestClient.pas"/>
-        <DCCReference Include="..\Source\Core\Brasil4D.Schemas.pas"/>
-        <DCCReference Include="..\Source\FeriadosNacionais\Brasil4D.FeriadosNacionais.Schemas.pas"/>
-        <DCCReference Include="..\Source\FeriadosNacionais\Brasil4D.FeriadosNacionais.WebServices.pas"/>
         <DCCReference Include="Brasil4D.Registry.pas"/>
         <DCCReference Include="..\Source\Brasil4D.Bank.Schemas.pas"/>
         <DCCReference Include="..\Source\Brasil4D.Bank.WebServices.pas"/>
@@ -143,17 +135,25 @@
         <DCCReference Include="..\Source\Brasil4D.CEP.WebServices.pas"/>
         <DCCReference Include="..\Source\Brasil4D.CEPV2.Schemas.pas"/>
         <DCCReference Include="..\Source\Brasil4D.CEPV2.WebServices.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.CNPJ.Schemas.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.CNPJ.WebServices.pas"/>
         <DCCReference Include="..\Source\Brasil4D.Core.Constants.pas"/>
         <DCCReference Include="..\Source\Brasil4D.Core.Exceptions.pas"/>
         <DCCReference Include="..\Source\Brasil4D.Core.WebServices.pas"/>
-        <DCCReference Include="..\Source\Brasil4D.CNPJ.Schemas.pas"/>
-        <DCCReference Include="..\Source\Brasil4D.CNPJ.WebServices.pas"/>
         <DCCReference Include="..\Source\Brasil4D.DDD.Schemas.pas"/>
         <DCCReference Include="..\Source\Brasil4D.DDD.WebServices.pas"/>
-        <DCCReference Include="..\Source\Brasil4D.RegistroBR.Schemas.pas"/>
-        <DCCReference Include="..\Source\Brasil4D.RegistroBR.WebServices.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.FeriadosNacionais.Schemas.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.FeriadosNacionais.WebServices.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.Helper.DateTime.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.Helper.JSON.pas"/>
         <DCCReference Include="..\Source\Brasil4D.ISBN.Schemas.pas"/>
         <DCCReference Include="..\Source\Brasil4D.ISBN.WebServices.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.RegistroBR.Schemas.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.RegistroBR.WebServices.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.Rest.Base.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.Rest.RestClient.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.Schemas.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

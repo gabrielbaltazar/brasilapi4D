@@ -1,8 +1,8 @@
-object frmFeriadosNacionais: TfrmFeriadosNacionais
+object frmBrasil4DExemplo: TfrmBrasil4DExemplo
   Left = 0
   Top = 0
   BorderStyle = bsDialog
-  Caption = 'frmFeriadosNacionais'
+  Caption = 'Brasil 4D'
   ClientHeight = 424
   ClientWidth = 825
   Color = clBtnFace
@@ -33,6 +33,8 @@ object frmFeriadosNacionais: TfrmFeriadosNacionais
     ActivePage = tsISBN
     Align = alClient
     TabOrder = 1
+    ExplicitWidth = 821
+    ExplicitHeight = 382
     object tsBank: TTabSheet
       Caption = 'Bank'
       object Panel3: TPanel
@@ -287,7 +289,6 @@ object frmFeriadosNacionais: TfrmFeriadosNacionais
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitWidth = 813
         object Label6: TLabel
           Left = 16
           Top = 11
@@ -321,8 +322,6 @@ object frmFeriadosNacionais: TfrmFeriadosNacionais
         Align = alClient
         ScrollBars = ssVertical
         TabOrder = 1
-        ExplicitWidth = 813
-        ExplicitHeight = 274
       end
     end
     object tsISBN: TTabSheet
@@ -336,7 +335,7 @@ object frmFeriadosNacionais: TfrmFeriadosNacionais
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitTop = 8
+        ExplicitWidth = 813
         object Label7: TLabel
           Left = 16
           Top = 11
@@ -377,7 +376,7 @@ object frmFeriadosNacionais: TfrmFeriadosNacionais
   end
   object Brasil4D1: TBrasil4D
     BaseUrl = 'https://brasilapi.com.br/api'
-    Left = 424
-    Top = 49
+    Left = 672
+    Top = 25
   end
 end
