@@ -16,7 +16,7 @@ uses
   System.Generics.Collections;
 
 type
-  TBrasil4DCEPV2WebSerices = class(TBrasil4DCoreWebServices)
+  TBrasil4DCEPV2WebServices = class(TBrasil4DCoreWebServices)
   private
     FCep: string;
     FRetorno: TBrasil4DCEPV2Schema;
@@ -33,21 +33,21 @@ type
 
 implementation
 
-{ TBrasil4DCEPV2WebSerices }
+{ TBrasil4DCEPV2WebServices }
 
-constructor TBrasil4DCEPV2WebSerices.Create;
+constructor TBrasil4DCEPV2WebServices.Create;
 begin
   inherited;
   FResource := CEPV2_RESOURCE;
 end;
 
-destructor TBrasil4DCEPV2WebSerices.Destroy;
+destructor TBrasil4DCEPV2WebServices.Destroy;
 begin
   FreeAndNil(FRetorno);
   inherited;
 end;
 
-procedure TBrasil4DCEPV2WebSerices.Executar;
+procedure TBrasil4DCEPV2WebServices.Executar;
 var
   LResource: string;
   LErro: string;
@@ -69,7 +69,7 @@ begin
   FRetorno.FromJSONObject(LJSON);
 end;
 
-function TBrasil4DCEPV2WebSerices.GetRetorno: TBrasil4DCEPV2Schema;
+function TBrasil4DCEPV2WebServices.GetRetorno: TBrasil4DCEPV2Schema;
 begin
   if not Assigned(FRetorno) then
     FRetorno := TBrasil4DCEPV2Schema.Create;

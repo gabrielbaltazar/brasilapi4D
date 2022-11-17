@@ -30,11 +30,9 @@ object frmFeriadosNacionais: TfrmFeriadosNacionais
     Top = 41
     Width = 825
     Height = 383
-    ActivePage = tsCEP
+    ActivePage = tsDDD
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 821
-    ExplicitHeight = 382
     object tsBank: TTabSheet
       Caption = 'Bank'
       object Panel3: TPanel
@@ -144,7 +142,6 @@ object frmFeriadosNacionais: TfrmFeriadosNacionais
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitWidth = 813
         object Label3: TLabel
           Left = 16
           Top = 11
@@ -179,6 +176,101 @@ object frmFeriadosNacionais: TfrmFeriadosNacionais
         end
       end
       object mmoCepResponse: TMemo
+        Left = 0
+        Top = 72
+        Width = 817
+        Height = 275
+        Align = alClient
+        ScrollBars = ssVertical
+        TabOrder = 1
+      end
+    end
+    object tsCNPJ: TTabSheet
+      Caption = 'CNPJ'
+      ImageIndex = 3
+      object Panel5: TPanel
+        Left = 0
+        Top = 0
+        Width = 817
+        Height = 72
+        Align = alTop
+        BevelOuter = bvNone
+        TabOrder = 0
+        ExplicitWidth = 813
+        object Label4: TLabel
+          Left = 16
+          Top = 11
+          Width = 36
+          Height = 21
+          Caption = 'CNPJ'
+        end
+        object edtCNPJ: TEdit
+          Left = 16
+          Top = 34
+          Width = 194
+          Height = 29
+          TabOrder = 0
+        end
+        object btnCNPJ: TButton
+          Left = 216
+          Top = 34
+          Width = 137
+          Height = 29
+          Caption = 'Buscar'
+          TabOrder = 1
+          OnClick = btnCNPJClick
+        end
+      end
+      object mmoCNPJResponse: TMemo
+        Left = 0
+        Top = 72
+        Width = 817
+        Height = 275
+        Align = alClient
+        ScrollBars = ssVertical
+        TabOrder = 1
+        ExplicitWidth = 813
+        ExplicitHeight = 274
+      end
+    end
+    object tsDDD: TTabSheet
+      Caption = 'DDD'
+      ImageIndex = 4
+      object Panel6: TPanel
+        Left = 0
+        Top = 0
+        Width = 817
+        Height = 72
+        Align = alTop
+        BevelOuter = bvNone
+        TabOrder = 0
+        ExplicitTop = 8
+        object Label5: TLabel
+          Left = 16
+          Top = 11
+          Width = 33
+          Height = 21
+          Caption = 'DDD'
+        end
+        object edtDDD: TEdit
+          Left = 16
+          Top = 34
+          Width = 194
+          Height = 29
+          TabOrder = 0
+          Text = '21'
+        end
+        object btnDDD: TButton
+          Left = 216
+          Top = 34
+          Width = 137
+          Height = 29
+          Caption = 'Buscar'
+          TabOrder = 1
+          OnClick = btnDDDClick
+        end
+      end
+      object mmoDDDResponse: TMemo
         Left = 0
         Top = 72
         Width = 817

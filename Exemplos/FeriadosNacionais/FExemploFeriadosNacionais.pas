@@ -33,12 +33,26 @@ type
     btnCEP: TButton;
     btnCepV2: TButton;
     mmoCepResponse: TMemo;
+    tsCNPJ: TTabSheet;
+    Panel5: TPanel;
+    Label4: TLabel;
+    edtCNPJ: TEdit;
+    btnCNPJ: TButton;
+    mmoCNPJResponse: TMemo;
+    tsDDD: TTabSheet;
+    Panel6: TPanel;
+    Label5: TLabel;
+    edtDDD: TEdit;
+    btnDDD: TButton;
+    mmoDDDResponse: TMemo;
     procedure FormCreate(Sender: TObject);
     procedure btnListarClick(Sender: TObject);
     procedure btnBankBuscarClick(Sender: TObject);
     procedure btnBankListarClick(Sender: TObject);
     procedure btnCEPClick(Sender: TObject);
     procedure btnCepV2Click(Sender: TObject);
+    procedure btnCNPJClick(Sender: TObject);
+    procedure btnDDDClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -110,6 +124,37 @@ begin
   mmoCepResponse.Lines.Add('Service: ' + Brasil4D1.CEPV2.Retorno.Service);
   mmoCepResponse.Lines.Add('Latitude: ' + Brasil4D1.CEPV2.Retorno.Latitude.ToString);
   mmoCepResponse.Lines.Add('Longitude: ' + Brasil4D1.CEPV2.Retorno.Longitude.ToString);
+end;
+
+procedure TfrmFeriadosNacionais.btnCNPJClick(Sender: TObject);
+begin
+  Brasil4D1.CNPJ.CNPJ := edtCNPJ.Text;
+  Brasil4D1.CNPJ.Executar;
+
+  mmoCNPJResponse.Clear;
+  mmoCNPJResponse.Lines.Add('CNPJ: ' + Brasil4D1.CNPJ.Retorno.CNPJ);
+  mmoCNPJResponse.Lines.Add('Razão Social: ' + Brasil4D1.CNPJ.Retorno.RazaoSocial);
+  mmoCNPJResponse.Lines.Add('Nome Fantasia: ' + Brasil4D1.CNPJ.Retorno.NomeFantasia);
+  mmoCNPJResponse.Lines.Add('Cnae Descrição: ' + Brasil4D1.CNPJ.Retorno.CnaeFiscalDescricao);
+end;
+
+procedure TfrmFeriadosNacionais.btnDDDClick(Sender: TObject);
+var
+  I: Integer;
+begin
+  mmoDDDResponse.Clear;
+  Brasil4D1.DDD.DDD := StrToIntDef(edtDDD.Text, 21);
+  Brasil4D1.DDD.Executar;
+
+  mmoDDDResponse.Lines.Add('State: ' + Brasil4D1.DDD.Retorno.State);
+  mmoDDDResponse.Lines.Add('Nome: ' + Brasil4D1.DDD.Retorno.Nome);
+  mmoDDDResponse.Lines.Add('Id Região: ' + Brasil4D1.DDD.Retorno.Regiao.Id.ToString);
+  mmoDDDResponse.Lines.Add('Sigla Região: ' + Brasil4D1.DDD.Retorno.Regiao.Sigla);
+  mmoDDDResponse.Lines.Add('Nome Região: ' + Brasil4D1.DDD.Retorno.Regiao.Nome);
+
+  mmoDDDResponse.Lines.Add('Cities');
+  for I := 0 to Pred(Brasil4D1.DDD.Retorno.Cities.Count) do
+    mmoDDDResponse.Lines.Add('  ' + Brasil4D1.DDD.Retorno.Cities[I]);
 end;
 
 procedure TfrmFeriadosNacionais.btnListarClick(Sender: TObject);

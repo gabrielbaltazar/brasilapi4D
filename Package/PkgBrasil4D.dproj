@@ -147,6 +147,9 @@
         <DCCReference Include="..\Source\Brasil4D.Core.Exceptions.pas"/>
         <DCCReference Include="..\Source\Brasil4D.Core.WebServices.pas"/>
         <DCCReference Include="..\Source\Brasil4D.CNPJ.Schemas.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.CNPJ.WebServices.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.DDD.Schemas.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.DDD.WebServices.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

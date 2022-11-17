@@ -1,4 +1,4 @@
-unit Brasil4D.CEP.WebServices;
+unit Brasil4D.CNPJ.WebServices;
 
 interface
 
@@ -8,7 +8,7 @@ uses
   Brasil4D.Core.Exceptions,
   Brasil4D.Rest.Base,
   Brasil4D.Rest.RestClient,
-  Brasil4D.CEP.Schemas,
+  Brasil4D.CNPJ.Schemas,
   Brasil4D.Helper.JSON,
   System.DateUtils,
   System.JSON,
@@ -16,44 +16,44 @@ uses
   System.Generics.Collections;
 
 type
-  TBrasil4DCEPWebServices = class(TBrasil4DCoreWebServices)
+  TBrasil4DCNPJWebServices = class(TBrasil4DCoreWebServices)
   private
-    FCep: string;
-    FRetorno: TBrasil4DCEPSchema;
-    function GetRetorno: TBrasil4DCEPSchema;
+    FCNPJ: string;
+    FRetorno: TBrasil4DCNPJSchema;
+    function GetRetorno: TBrasil4DCNPJSchema;
   public
     constructor Create; override;
     destructor Destroy; override;
 
     procedure Executar;
 
-    property Cep: string read FCep write FCep;
-    property Retorno: TBrasil4DCEPSchema read GetRetorno;
+    property CNPJ: string read FCNPJ write FCNPJ;
+    property Retorno: TBrasil4DCNPJSchema read GetRetorno;
   end;
 
 implementation
 
-{ TBrasil4DCEPWebServices }
+{ TBrasil4DCNPJWebServices }
 
-constructor TBrasil4DCEPWebServices.Create;
+constructor TBrasil4DCNPJWebServices.Create;
 begin
   inherited;
-  FResource := CEP_RESOURCE;
+  FResource := CNPJ_RESOURCE;
 end;
 
-destructor TBrasil4DCEPWebServices.Destroy;
+destructor TBrasil4DCNPJWebServices.Destroy;
 begin
   FreeAndNil(FRetorno);
   inherited;
 end;
 
-procedure TBrasil4DCEPWebServices.Executar;
+procedure TBrasil4DCNPJWebServices.Executar;
 var
   LResource: string;
   LErro: string;
   LJSON: TJSONObject;
 begin
-  LResource := FResource + '/' + FCep;
+  LResource := FResource + '/' + FCNPJ.Replace('/', EmptyStr);
   FreeAndNil(FRetorno);
   FRequest
     .GET
@@ -64,15 +64,15 @@ begin
   LJSON := FResponse.GetJSONObject;
   LErro := LJSON.ValueAsString('message');
   if LErro <> EmptyStr then
-    raise EBrasil4DCepException.Create(FCep, LErro);
-  FRetorno := TBrasil4DCEPSchema.Create;
+    raise EBrasil4DCNPJException.Create(FCNPJ, LErro);
+  FRetorno := TBrasil4DCNPJSchema.Create;
   FRetorno.FromJSONObject(LJSON);
 end;
 
-function TBrasil4DCEPWebServices.GetRetorno: TBrasil4DCEPSchema;
+function TBrasil4DCNPJWebServices.GetRetorno: TBrasil4DCNPJSchema;
 begin
   if not Assigned(FRetorno) then
-    FRetorno := TBrasil4DCEPSchema.Create;
+    FRetorno := TBrasil4DCNPJSchema.Create;
   Result := FRetorno;
 end;
 
