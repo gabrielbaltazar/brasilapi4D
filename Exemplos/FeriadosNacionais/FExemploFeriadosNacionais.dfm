@@ -30,7 +30,7 @@ object frmFeriadosNacionais: TfrmFeriadosNacionais
     Top = 41
     Width = 825
     Height = 383
-    ActivePage = tsDDD
+    ActivePage = tsISBN
     Align = alClient
     TabOrder = 1
     object tsBank: TTabSheet
@@ -196,7 +196,6 @@ object frmFeriadosNacionais: TfrmFeriadosNacionais
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitWidth = 813
         object Label4: TLabel
           Left = 16
           Top = 11
@@ -229,8 +228,6 @@ object frmFeriadosNacionais: TfrmFeriadosNacionais
         Align = alClient
         ScrollBars = ssVertical
         TabOrder = 1
-        ExplicitWidth = 813
-        ExplicitHeight = 274
       end
     end
     object tsDDD: TTabSheet
@@ -244,7 +241,6 @@ object frmFeriadosNacionais: TfrmFeriadosNacionais
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitTop = 8
         object Label5: TLabel
           Left = 16
           Top = 11
@@ -271,6 +267,102 @@ object frmFeriadosNacionais: TfrmFeriadosNacionais
         end
       end
       object mmoDDDResponse: TMemo
+        Left = 0
+        Top = 72
+        Width = 817
+        Height = 275
+        Align = alClient
+        ScrollBars = ssVertical
+        TabOrder = 1
+      end
+    end
+    object tsRegistroBR: TTabSheet
+      Caption = 'RegistroBR'
+      ImageIndex = 5
+      object Panel7: TPanel
+        Left = 0
+        Top = 0
+        Width = 817
+        Height = 72
+        Align = alTop
+        BevelOuter = bvNone
+        TabOrder = 0
+        ExplicitWidth = 813
+        object Label6: TLabel
+          Left = 16
+          Top = 11
+          Width = 60
+          Height = 21
+          Caption = 'Dom'#237'nio'
+        end
+        object edtDominio: TEdit
+          Left = 16
+          Top = 34
+          Width = 194
+          Height = 29
+          TabOrder = 0
+          Text = 'google'
+        end
+        object btnRegistroBR: TButton
+          Left = 216
+          Top = 34
+          Width = 137
+          Height = 29
+          Caption = 'Buscar'
+          TabOrder = 1
+          OnClick = btnRegistroBRClick
+        end
+      end
+      object mmoRegistroBRResponse: TMemo
+        Left = 0
+        Top = 72
+        Width = 817
+        Height = 275
+        Align = alClient
+        ScrollBars = ssVertical
+        TabOrder = 1
+        ExplicitWidth = 813
+        ExplicitHeight = 274
+      end
+    end
+    object tsISBN: TTabSheet
+      Caption = 'ISBN'
+      ImageIndex = 6
+      object Panel8: TPanel
+        Left = 0
+        Top = 0
+        Width = 817
+        Height = 72
+        Align = alTop
+        BevelOuter = bvNone
+        TabOrder = 0
+        ExplicitTop = 8
+        object Label7: TLabel
+          Left = 16
+          Top = 11
+          Width = 34
+          Height = 21
+          Caption = 'ISBN'
+        end
+        object edtISBN: TEdit
+          Left = 16
+          Top = 34
+          Width = 194
+          Height = 29
+          TabOrder = 0
+          Text = '9788545702870'
+        end
+        object btnISBN: TButton
+          Left = 216
+          Top = 34
+          Width = 137
+          Height = 29
+          Caption = 'Buscar'
+          TabOrder = 1
+          OnClick = btnISBNClick
+        end
+      end
+      object mmoISBNResponse: TMemo
         Left = 0
         Top = 72
         Width = 817

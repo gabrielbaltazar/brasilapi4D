@@ -32,6 +32,22 @@ type
     property DDD: Integer read FDDD;
   end;
 
+  EBrasil4DRegistroBRException = class(EBrasil4DException)
+  private
+    FDomain: string;
+  public
+    constructor Create(ADomain: string; AMessage: string); reintroduce;
+    property Domain: string read FDomain;
+  end;
+
+  EBrasil4DISBNException = class(EBrasil4DException)
+  private
+    FISBN: string;
+  public
+    constructor Create(AISBN: string; AMessage: string); reintroduce;
+    property ISBN: string read FISBN;
+  end;
+
 implementation
 
 { EBrasil4DCepException }
@@ -56,6 +72,22 @@ constructor EBrasil4DDDDException.Create(ADDD: Integer; AMessage: string);
 begin
   inherited Create(AMessage);
   FDDD := ADDD;
+end;
+
+{ EBrasil4DRegistroBRException }
+
+constructor EBrasil4DRegistroBRException.Create(ADomain, AMessage: string);
+begin
+  inherited Create(AMessage);
+  FDomain := ADomain;
+end;
+
+{ EBrasil4DISBNException }
+
+constructor EBrasil4DISBNException.Create(AISBN, AMessage: string);
+begin
+  inherited Create(AMessage);
+  FISBN := AISBN;
 end;
 
 end.

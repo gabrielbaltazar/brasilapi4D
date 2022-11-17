@@ -45,6 +45,18 @@ type
     edtDDD: TEdit;
     btnDDD: TButton;
     mmoDDDResponse: TMemo;
+    tsRegistroBR: TTabSheet;
+    Panel7: TPanel;
+    Label6: TLabel;
+    edtDominio: TEdit;
+    btnRegistroBR: TButton;
+    mmoRegistroBRResponse: TMemo;
+    tsISBN: TTabSheet;
+    Panel8: TPanel;
+    Label7: TLabel;
+    edtISBN: TEdit;
+    btnISBN: TButton;
+    mmoISBNResponse: TMemo;
     procedure FormCreate(Sender: TObject);
     procedure btnListarClick(Sender: TObject);
     procedure btnBankBuscarClick(Sender: TObject);
@@ -53,6 +65,8 @@ type
     procedure btnCepV2Click(Sender: TObject);
     procedure btnCNPJClick(Sender: TObject);
     procedure btnDDDClick(Sender: TObject);
+    procedure btnRegistroBRClick(Sender: TObject);
+    procedure btnISBNClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -157,6 +171,19 @@ begin
     mmoDDDResponse.Lines.Add('  ' + Brasil4D1.DDD.Retorno.Cities[I]);
 end;
 
+procedure TfrmFeriadosNacionais.btnISBNClick(Sender: TObject);
+var
+  I: Integer;
+begin
+  mmoISBNResponse.Clear;
+  Brasil4D1.ISBN.ISBN := edtISBN.Text;
+  Brasil4D1.ISBN.Executar;
+
+  mmoISBNResponse.Lines.Add('ISBN: ' + Brasil4D1.ISBN.Retorno.ISBN);
+  mmoISBNResponse.Lines.Add('Title: ' + Brasil4D1.ISBN.Retorno.Title);
+  mmoISBNResponse.Lines.Add('Subtitle: ' + Brasil4D1.ISBN.Retorno.Subtitle);
+end;
+
 procedure TfrmFeriadosNacionais.btnListarClick(Sender: TObject);
 var
   I: Integer;
@@ -171,6 +198,18 @@ begin
     mmoResponse.Lines.Add('Name: ' + Brasil4D1.FeriadosNacionais.Lista.Retorno[I].Name);
     mmoResponse.Lines.Add('Type: ' + Brasil4D1.FeriadosNacionais.Lista.Retorno[I].&Type);
   end;
+end;
+
+procedure TfrmFeriadosNacionais.btnRegistroBRClick(Sender: TObject);
+begin
+  mmoRegistroBRResponse.Clear;
+  Brasil4D1.RegistroBR.Domain := edtDominio.Text;
+  Brasil4D1.RegistroBR.Executar;
+
+  mmoRegistroBRResponse.Lines.Add('Fqdn: ' + Brasil4D1.RegistroBR.Retorno.Fqdn);
+  mmoRegistroBRResponse.Lines.Add('Status Code: ' + Brasil4D1.RegistroBR.Retorno.StatusCode.ToString);
+  mmoRegistroBRResponse.Lines.Add('Status: ' + Brasil4D1.RegistroBR.Retorno.Status);
+  mmoRegistroBRResponse.Lines.Add('Publication Status: ' + Brasil4D1.RegistroBR.Retorno.PublicationStatus);
 end;
 
 destructor TfrmFeriadosNacionais.Destroy;

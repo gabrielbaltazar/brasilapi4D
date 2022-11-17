@@ -9,6 +9,8 @@ const
   CEPV2_RESOURCE = 'cep/v2';
   CNPJ_RESOURCE = 'cnpj/v1';
   DDD_RESOURCE = 'ddd/v1';
+  ISBN_RESOURCE = 'isbn/v1';
+  REGISTROBR_RESOURCE = 'registrobr/v1';
 
 implementation
 

@@ -10,7 +10,9 @@ uses
   Brasil4D.CEPV2.WebServices,
   Brasil4D.CNPJ.WebServices,
   Brasil4D.DDD.WebServices,
-  Brasil4D.FeriadosNacionais.WebServices;
+  Brasil4D.FeriadosNacionais.WebServices,
+  Brasil4D.ISBN.WebServices,
+  Brasil4D.RegistroBR.WebServices;
 
 type
   TBrasil4D = class(TComponent)
@@ -22,12 +24,16 @@ type
     FCEPV2: TBrasil4DCEPV2WebServices;
     FCNPJ: TBrasil4DCNPJWebServices;
     FDDD: TBrasil4DDDDWebServices;
+    FRegistroBR: TBrasil4DRegistroBRWebServices;
+    FISBN: TBrasil4DISBNWebServices;
     function GetFeriadosNacionais: TBrasil4DFeriadosNacionaisWebServices;
     function GetBank: TBrasil4DBankWebSerices;
     function GetCep: TBrasil4DCEPWebServices;
     function GetCepV2: TBrasil4DCEPV2WebServices;
     function GetCNPJ: TBrasil4DCNPJWebServices;
     function GetDDD: TBrasil4DDDDWebServices;
+    function GetRegistroBR: TBrasil4DRegistroBRWebServices;
+    function GetISBN: TBrasil4DISBNWebServices;
   published
     property BaseUrl: string read FBaseUrl write FBaseUrl;
   public
@@ -40,6 +46,8 @@ type
     property CNPJ: TBrasil4DCNPJWebServices read GetCNPJ;
     property DDD: TBrasil4DDDDWebServices read GetDDD;
     property FeriadosNacionais: TBrasil4DFeriadosNacionaisWebServices read GetFeriadosNacionais;
+    property ISBN: TBrasil4DISBNWebServices read GetISBN;
+    property RegistroBR: TBrasil4DRegistroBRWebServices read GetRegistroBR;
   end;
 
 implementation
@@ -60,6 +68,8 @@ begin
   FreeAndNil(FCNPJ);
   FreeAndNil(FDDD);
   FreeAndNil(FFeriadosNacionais);
+  FreeAndNil(FISBN);
+  FreeAndNil(FRegistroBR);
   inherited;
 end;
 
@@ -103,6 +113,20 @@ begin
   if not Assigned(FFeriadosNacionais) then
     FFeriadosNacionais := TBrasil4DFeriadosNacionaisWebServices.Create;
   Result := FFeriadosNacionais;
+end;
+
+function TBrasil4D.GetISBN: TBrasil4DISBNWebServices;
+begin
+  if not Assigned(FISBN) then
+    FISBN := TBrasil4DISBNWebServices.Create;
+  Result := FISBN;
+end;
+
+function TBrasil4D.GetRegistroBR: TBrasil4DRegistroBRWebServices;
+begin
+  if not Assigned(FRegistroBR) then
+    FRegistroBR := TBrasil4DRegistroBRWebServices.Create;
+  Result := FRegistroBR;
 end;
 
 end.

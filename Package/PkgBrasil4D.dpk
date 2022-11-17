@@ -61,6 +61,10 @@ contains
   Brasil4D.CNPJ.Schemas in '..\Source\Brasil4D.CNPJ.Schemas.pas',
   Brasil4D.CNPJ.WebServices in '..\Source\Brasil4D.CNPJ.WebServices.pas',
   Brasil4D.DDD.Schemas in '..\Source\Brasil4D.DDD.Schemas.pas',
-  Brasil4D.DDD.WebServices in '..\Source\Brasil4D.DDD.WebServices.pas';
+  Brasil4D.DDD.WebServices in '..\Source\Brasil4D.DDD.WebServices.pas',
+  Brasil4D.RegistroBR.Schemas in '..\Source\Brasil4D.RegistroBR.Schemas.pas',
+  Brasil4D.RegistroBR.WebServices in '..\Source\Brasil4D.RegistroBR.WebServices.pas',
+  Brasil4D.ISBN.Schemas in '..\Source\Brasil4D.ISBN.Schemas.pas',
+  Brasil4D.ISBN.WebServices in '..\Source\Brasil4D.ISBN.WebServices.pas';
 
 end.

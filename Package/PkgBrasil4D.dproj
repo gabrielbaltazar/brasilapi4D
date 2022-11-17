@@ -150,6 +150,10 @@
         <DCCReference Include="..\Source\Brasil4D.CNPJ.WebServices.pas"/>
         <DCCReference Include="..\Source\Brasil4D.DDD.Schemas.pas"/>
         <DCCReference Include="..\Source\Brasil4D.DDD.WebServices.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.RegistroBR.Schemas.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.RegistroBR.WebServices.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.ISBN.Schemas.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.ISBN.WebServices.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
