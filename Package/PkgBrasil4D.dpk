@@ -48,6 +48,15 @@ contains
   Brasil4D.Schemas in '..\Source\Core\Brasil4D.Schemas.pas',
   Brasil4D.FeriadosNacionais.Schemas in '..\Source\FeriadosNacionais\Brasil4D.FeriadosNacionais.Schemas.pas',
   Brasil4D.FeriadosNacionais.WebServices in '..\Source\FeriadosNacionais\Brasil4D.FeriadosNacionais.WebServices.pas',
-  Brasil4D.Registry in 'Brasil4D.Registry.pas';
+  Brasil4D.Registry in 'Brasil4D.Registry.pas',
+  Brasil4D.Bank.Schemas in '..\Source\Brasil4D.Bank.Schemas.pas',
+  Brasil4D.Bank.WebServices in '..\Source\Brasil4D.Bank.WebServices.pas',
+  Brasil4D.CEP.Schemas in '..\Source\Brasil4D.CEP.Schemas.pas',
+  Brasil4D.CEP.WebServices in '..\Source\Brasil4D.CEP.WebServices.pas',
+  Brasil4D.CEPV2.Schemas in '..\Source\Brasil4D.CEPV2.Schemas.pas',
+  Brasil4D.CEPV2.WebServices in '..\Source\Brasil4D.CEPV2.WebServices.pas',
+  Brasil4D.Core.Constants in '..\Source\Brasil4D.Core.Constants.pas',
+  Brasil4D.Core.Exceptions in '..\Source\Brasil4D.Core.Exceptions.pas',
+  Brasil4D.Core.WebServices in '..\Source\Brasil4D.Core.WebServices.pas';
 
 end.
