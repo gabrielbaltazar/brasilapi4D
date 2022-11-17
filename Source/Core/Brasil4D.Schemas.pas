@@ -27,11 +27,12 @@ var
 begin
   Result := TObjectList<T>.Create;
   try
-    for I := 0 to Pred(AJSONArray.Count) do
-    begin
-      Result.Add(T.Create);
-      Result.Last.FromJSONObject(AJSONArray.ItemAsJSONObject(I));
-    end;
+    if Assigned(AJSONArray) then
+      for I := 0 to Pred(AJSONArray.Count) do
+      begin
+        Result.Add(T.Create);
+        Result.Last.FromJSONObject(AJSONArray.ItemAsJSONObject(I));
+      end;
   except
     Result.Free;
     raise;

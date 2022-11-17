@@ -57,6 +57,7 @@ contains
   Brasil4D.CEPV2.WebServices in '..\Source\Brasil4D.CEPV2.WebServices.pas',
   Brasil4D.Core.Constants in '..\Source\Brasil4D.Core.Constants.pas',
   Brasil4D.Core.Exceptions in '..\Source\Brasil4D.Core.Exceptions.pas',
-  Brasil4D.Core.WebServices in '..\Source\Brasil4D.Core.WebServices.pas';
+  Brasil4D.Core.WebServices in '..\Source\Brasil4D.Core.WebServices.pas',
+  Brasil4D.CNPJ.Schemas in '..\Source\Brasil4D.CNPJ.Schemas.pas';
 
 end.
