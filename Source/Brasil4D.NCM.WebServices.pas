@@ -19,7 +19,7 @@ type
   TBrasil4DNCMWebServicesLista = class;
   TBrasil4DNCMWebServicesBusca = class;
 
-  TBrasil4DNCMWebSerices = class
+  TBrasil4DNCMWebServices = class
   private
     FLista: TBrasil4DNCMWebServicesLista;
     FBusca: TBrasil4DNCMWebServicesBusca;
@@ -156,23 +156,23 @@ begin
   Result := FRetorno;
 end;
 
-{ TBrasil4DNCMWebSerices }
+{ TBrasil4DNCMWebServices }
 
-destructor TBrasil4DNCMWebSerices.Destroy;
+destructor TBrasil4DNCMWebServices.Destroy;
 begin
   FreeAndNil(FLista);
   FreeAndNil(FBusca);
   inherited;
 end;
 
-function TBrasil4DNCMWebSerices.GetBusca: TBrasil4DNCMWebServicesBusca;
+function TBrasil4DNCMWebServices.GetBusca: TBrasil4DNCMWebServicesBusca;
 begin
   if not Assigned(FBusca) then
     FBusca := TBrasil4DNCMWebServicesBusca.Create;
   Result := FBusca;
 end;
 
-function TBrasil4DNCMWebSerices.GetLista: TBrasil4DNCMWebServicesLista;
+function TBrasil4DNCMWebServices.GetLista: TBrasil4DNCMWebServicesLista;
 begin
   if not Assigned(FLista) then
     FLista := TBrasil4DNCMWebServicesLista.Create;

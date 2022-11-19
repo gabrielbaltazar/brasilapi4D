@@ -80,7 +80,9 @@ end;
 
 class function TBrasil4DHelperJSONObject.FromString(Value: string): TJSONObject;
 begin
-  Result := TJSONObject.ParseJSONValue(Value) as TJSONObject;
+  Result := nil;
+  if Value.Trim.StartsWith('{') then
+    Result := TJSONObject.ParseJSONValue(Value) as TJSONObject;
 end;
 
 function TBrasil4DHelperJSONObject.SetValue(Name: string; Value: Double): TJSONObject;
@@ -190,7 +192,9 @@ end;
 
 class function TBrasil4DHelperJSONArray.FromString(Value: string): TJSONArray;
 begin
-  Result := TJSONObject.ParseJSONValue(Value) as TJSONArray;
+  Result := nil;
+  if Value.Trim.StartsWith('[') then
+    Result := TJSONObject.ParseJSONValue(Value) as TJSONArray;
 end;
 
 {$IF CompilerVersion <= 26.0}

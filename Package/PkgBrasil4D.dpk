@@ -71,6 +71,8 @@ contains
   Brasil4D.NCM.Schemas in '..\Source\Brasil4D.NCM.Schemas.pas',
   Brasil4D.NCM.WebServices in '..\Source\Brasil4D.NCM.WebServices.pas',
   Brasil4D.IBGE.Schemas in '..\Source\Brasil4D.IBGE.Schemas.pas',
-  Brasil4D.IBGE.WebServices in '..\Source\Brasil4D.IBGE.WebServices.pas';
+  Brasil4D.IBGE.WebServices in '..\Source\Brasil4D.IBGE.WebServices.pas',
+  Brasil4D.FIPE.Schemas in '..\Source\Brasil4D.FIPE.Schemas.pas',
+  Brasil4D.FIPE.WebServices in '..\Source\Brasil4D.FIPE.WebServices.pas';
 
 end.

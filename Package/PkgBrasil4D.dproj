@@ -160,6 +160,8 @@
         <DCCReference Include="..\Source\Brasil4D.NCM.WebServices.pas"/>
         <DCCReference Include="..\Source\Brasil4D.IBGE.Schemas.pas"/>
         <DCCReference Include="..\Source\Brasil4D.IBGE.WebServices.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.FIPE.Schemas.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.FIPE.WebServices.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

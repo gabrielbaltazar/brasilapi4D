@@ -9,6 +9,7 @@ const
   CEPV2_RESOURCE = 'cep/v2';
   CNPJ_RESOURCE = 'cnpj/v1';
   DDD_RESOURCE = 'ddd/v1';
+  FIPE_RESOURCE = 'fipe';
   IBGE_RESOURCE = 'ibge';
   ISBN_RESOURCE = 'isbn/v1';
   NCM_RESOURCE = 'ncm/v1';

@@ -20,7 +20,7 @@ type
   TBrasil4DIBGEWebServicesEstadoBusca = class;
   TBrasil4DIBGEWebServicesEstadoLista = class;
 
-  TBrasil4DIBGEWebSerices = class
+  TBrasil4DIBGEWebServices = class
   private
     FMunicipios: TBrasil4DIBGEWebServicesMunicipios;
     FEstadoBusca: TBrasil4DIBGEWebServicesEstadoBusca;
@@ -39,7 +39,7 @@ type
   TBrasil4DIBGEWebServicesMunicipios = class(TBrasil4DCoreWebServices)
   private
     FRetorno: TObjectList<TBrasil4DIBGESchemaMunicipio>;
-    FUF: string;
+    FSiglaUF: string;
     function GetRetorno: TObjectList<TBrasil4DIBGESchemaMunicipio>;
   public
     constructor Create; override;
@@ -47,7 +47,7 @@ type
 
     procedure Executar;
 
-    property UF: string read FUF write FUF;
+    property SiglaUF: string read FSiglaUF write FSiglaUF;
     property Retorno: TObjectList<TBrasil4DIBGESchemaMunicipio> read GetRetorno;
   end;
 
@@ -67,7 +67,7 @@ type
   TBrasil4DIBGEWebServicesEstadoBusca = class(TBrasil4DCoreWebServices)
   private
     FRetorno: TBrasil4DIBGESchemaEstado;
-    FEstado: string;
+    FSiglaUF: string;
     function GetRetorno: TBrasil4DIBGESchemaEstado;
   public
     constructor Create; override;
@@ -75,7 +75,7 @@ type
 
     procedure Executar;
 
-    property Estado: string read FEstado write FEstado;
+    property SiglaUF: string read FSiglaUF write FSiglaUF;
     property Retorno: TBrasil4DIBGESchemaEstado read GetRetorno;
   end;
 
@@ -98,17 +98,27 @@ end;
 procedure TBrasil4DIBGEWebServicesMunicipios.Executar;
 var
   LJSONArray: TJSONArray;
+  LJSON: TJSONObject;
   LResource: string;
+  LErro: string;
 begin
   FreeAndNil(FRetorno);
+  ValidarArgumento('Sigla UF', FSiglaUF);
   LResource := FResource +
-    Format('/municipios/v1/%s?providers=dados-abertos-br,gov,wikipedia', [FUF]);
+    Format('/municipios/v1/%s?providers=dados-abertos-br,gov,wikipedia', [FSiglaUF]);
   FRequest
     .GET
     .BaseUrl(FBaseUrl)
     .Resource(LResource);
 
   EnviarRequest;
+  LJSON := FResponse.GetJSONObject;
+  if Assigned(LJSON) then
+  begin
+    LErro := LJSON.ValueAsString('message');
+    if LErro <> EmptyStr then
+      raise EBrasil4DIBGEException.Create(FSiglaUF, LErro);
+  end;
   LJSONArray := FResponse.GetJSONArray;
   FRetorno := TBrasil4DIBGESchemaMunicipio
     .FromJSONArray<TBrasil4DIBGESchemaMunicipio>(LJSONArray);
@@ -142,7 +152,8 @@ var
   LErro: string;
 begin
   FreeAndNil(FRetorno);
-  LResource := FResource + '/uf/v1/' + FEstado;
+  ValidarArgumento('Sigla UF', FSiglaUF);
+  LResource := FResource + '/uf/v1/' + FSiglaUF;
   FRequest
     .GET
     .BaseUrl(FBaseUrl)
@@ -152,7 +163,7 @@ begin
   LJSON := FResponse.GetJSONObject;
   LErro := LJSON.ValueAsString('message');
   if LErro <> EmptyStr then
-    raise EBrasil4DIBGEException.Create(FEstado, LErro);
+    raise EBrasil4DIBGEException.Create(FSiglaUF, LErro);
   FRetorno := TBrasil4DIBGESchemaEstado.Create;
   FRetorno.FromJSONObject(LJSON);
 end;
@@ -164,9 +175,9 @@ begin
   Result := FRetorno;
 end;
 
-{ TBrasil4DIBGEWebSerices }
+{ TBrasil4DIBGEWebServices }
 
-destructor TBrasil4DIBGEWebSerices.Destroy;
+destructor TBrasil4DIBGEWebServices.Destroy;
 begin
   FreeAndNil(FEstadoBusca);
   FreeAndNil(FEstadosLista);
@@ -174,21 +185,21 @@ begin
   inherited;
 end;
 
-function TBrasil4DIBGEWebSerices.GetEstadosBusca: TBrasil4DIBGEWebServicesEstadoBusca;
+function TBrasil4DIBGEWebServices.GetEstadosBusca: TBrasil4DIBGEWebServicesEstadoBusca;
 begin
   if not Assigned(FEstadoBusca) then
     FEstadoBusca := TBrasil4DIBGEWebServicesEstadoBusca.Create;
   Result := FEstadoBusca;
 end;
 
-function TBrasil4DIBGEWebSerices.GetEstadosLista: TBrasil4DIBGEWebServicesEstadoLista;
+function TBrasil4DIBGEWebServices.GetEstadosLista: TBrasil4DIBGEWebServicesEstadoLista;
 begin
   if not Assigned(FEstadosLista) then
     FEstadosLista := TBrasil4DIBGEWebServicesEstadoLista.Create;
   Result := FEstadosLista;
 end;
 
-function TBrasil4DIBGEWebSerices.GetMunicipios: TBrasil4DIBGEWebServicesMunicipios;
+function TBrasil4DIBGEWebServices.GetMunicipios: TBrasil4DIBGEWebServicesMunicipios;
 begin
   if not Assigned(FMunicipios) then
     FMunicipios := TBrasil4DIBGEWebServicesMunicipios.Create;

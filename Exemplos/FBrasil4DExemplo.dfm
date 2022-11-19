@@ -30,11 +30,9 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
     Top = 41
     Width = 992
     Height = 383
-    ActivePage = tsIBGE
+    ActivePage = tsFIPE
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 988
-    ExplicitHeight = 382
     object tsBank: TTabSheet
       Caption = 'Bank'
       object Panel3: TPanel
@@ -79,51 +77,6 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
         end
       end
       object mmoBankResponse: TMemo
-        Left = 0
-        Top = 72
-        Width = 984
-        Height = 275
-        Align = alClient
-        ScrollBars = ssVertical
-        TabOrder = 1
-      end
-    end
-    object tsFeriadosNacionais: TTabSheet
-      Caption = 'Feriados Nacionais'
-      ImageIndex = 1
-      object Panel2: TPanel
-        Left = 0
-        Top = 0
-        Width = 984
-        Height = 72
-        Align = alTop
-        BevelOuter = bvNone
-        TabOrder = 0
-        object Label1: TLabel
-          Left = 16
-          Top = 11
-          Width = 28
-          Height = 21
-          Caption = 'Ano'
-        end
-        object edtAno: TEdit
-          Left = 16
-          Top = 34
-          Width = 89
-          Height = 29
-          TabOrder = 0
-        end
-        object btnListar: TButton
-          Left = 120
-          Top = 37
-          Width = 137
-          Height = 29
-          Caption = 'Listar Feriados'
-          TabOrder = 1
-          OnClick = btnListarClick
-        end
-      end
-      object mmoResponse: TMemo
         Left = 0
         Top = 72
         Width = 984
@@ -278,10 +231,10 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
         TabOrder = 1
       end
     end
-    object tsRegistroBR: TTabSheet
-      Caption = 'RegistroBR'
-      ImageIndex = 5
-      object Panel7: TPanel
+    object tsFeriadosNacionais: TTabSheet
+      Caption = 'Feriados Nacionais'
+      ImageIndex = 1
+      object Panel2: TPanel
         Left = 0
         Top = 0
         Width = 984
@@ -289,32 +242,160 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
-        object Label6: TLabel
+        object Label1: TLabel
           Left = 16
           Top = 11
-          Width = 60
+          Width = 28
           Height = 21
-          Caption = 'Dom'#237'nio'
+          Caption = 'Ano'
         end
-        object edtDominio: TEdit
+        object edtAno: TEdit
           Left = 16
           Top = 34
-          Width = 194
+          Width = 89
           Height = 29
           TabOrder = 0
-          Text = 'google'
         end
-        object btnRegistroBR: TButton
-          Left = 216
+        object btnListar: TButton
+          Left = 120
+          Top = 37
+          Width = 137
+          Height = 29
+          Caption = 'Listar Feriados'
+          TabOrder = 1
+          OnClick = btnListarClick
+        end
+      end
+      object mmoResponse: TMemo
+        Left = 0
+        Top = 72
+        Width = 984
+        Height = 275
+        Align = alClient
+        ScrollBars = ssVertical
+        TabOrder = 1
+      end
+    end
+    object tsFIPE: TTabSheet
+      Caption = 'FIPE'
+      ImageIndex = 10
+      object Panel12: TPanel
+        Left = 0
+        Top = 0
+        Width = 984
+        Height = 72
+        Align = alTop
+        BevelOuter = bvNone
+        TabOrder = 0
+        ExplicitTop = 8
+        object Label12: TLabel
+          Left = 16
+          Top = 11
+          Width = 83
+          Height = 21
+          Caption = 'C'#243'digo FIPE'
+        end
+        object edtFipeCodigo: TEdit
+          Left = 16
+          Top = 34
+          Width = 145
+          Height = 29
+          TabOrder = 0
+          Text = '001004-9'
+        end
+        object btnFipePrecoVeiculos: TButton
+          Left = 318
           Top = 34
           Width = 137
           Height = 29
-          Caption = 'Buscar'
+          Caption = 'Pre'#231'o Ve'#237'culos'
+          TabOrder = 2
+          OnClick = btnFipePrecoVeiculosClick
+        end
+        object btnFipeListarMarcas: TButton
+          Left = 175
+          Top = 34
+          Width = 137
+          Height = 29
+          Caption = 'Listar Marcas'
           TabOrder = 1
-          OnClick = btnRegistroBRClick
+          OnClick = btnFipeListarMarcasClick
+        end
+        object btnFipeTabelas: TButton
+          Left = 461
+          Top = 34
+          Width = 137
+          Height = 29
+          Caption = 'Tabelas Referencia'
+          TabOrder = 3
+          OnClick = btnFipeTabelasClick
         end
       end
-      object mmoRegistroBRResponse: TMemo
+      object mmoFIPEResponse: TMemo
+        Left = 0
+        Top = 72
+        Width = 984
+        Height = 275
+        Align = alClient
+        ScrollBars = ssVertical
+        TabOrder = 1
+      end
+    end
+    object tsIBGE: TTabSheet
+      Caption = 'IBGE'
+      ImageIndex = 9
+      object Panel11: TPanel
+        Left = 0
+        Top = 0
+        Width = 984
+        Height = 72
+        Align = alTop
+        BevelOuter = bvNone
+        TabOrder = 0
+        object Label11: TLabel
+          Left = 16
+          Top = 11
+          Width = 46
+          Height = 21
+          Caption = 'Estado'
+        end
+        object edtIBGEEstado: TEdit
+          Left = 16
+          Top = 34
+          Width = 145
+          Height = 29
+          TabOrder = 0
+          Text = 'RJ'
+        end
+        object btnIBGEListarEstados: TButton
+          Left = 318
+          Top = 34
+          Width = 137
+          Height = 29
+          Caption = 'Listar Estados'
+          TabOrder = 2
+          OnClick = btnIBGEListarEstadosClick
+        end
+        object btnIBGEListarMunicipios: TButton
+          Left = 175
+          Top = 34
+          Width = 137
+          Height = 29
+          Caption = 'Listar Munic'#237'pios'
+          TabOrder = 1
+          OnClick = btnIBGEListarMunicipiosClick
+        end
+        object btnIBGEBuscaEstado: TButton
+          Left = 461
+          Top = 34
+          Width = 137
+          Height = 29
+          Caption = 'Buscar Estado'
+          TabOrder = 3
+          OnClick = btnIBGEBuscaEstadoClick
+        end
+      end
+      object mmoIBGEResponse: TMemo
         Left = 0
         Top = 72
         Width = 984
@@ -370,61 +451,6 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
         TabOrder = 1
       end
     end
-    object tsTaxas: TTabSheet
-      Caption = 'Taxas'
-      ImageIndex = 7
-      object Panel9: TPanel
-        Left = 0
-        Top = 0
-        Width = 984
-        Height = 72
-        Align = alTop
-        BevelOuter = bvNone
-        TabOrder = 0
-        object Label8: TLabel
-          Left = 16
-          Top = 11
-          Width = 43
-          Height = 21
-          Caption = 'Nome'
-        end
-        object edtTaxasNome: TEdit
-          Left = 16
-          Top = 34
-          Width = 145
-          Height = 29
-          TabOrder = 0
-          Text = 'CDI'
-        end
-        object btnTaxasLista: TButton
-          Left = 318
-          Top = 34
-          Width = 137
-          Height = 29
-          Caption = 'Listar Todos'
-          TabOrder = 2
-          OnClick = btnTaxasListaClick
-        end
-        object btnTaxasBusca: TButton
-          Left = 175
-          Top = 34
-          Width = 137
-          Height = 29
-          Caption = 'Buscar Pelo Nome'
-          TabOrder = 1
-          OnClick = btnTaxasBuscaClick
-        end
-      end
-      object mmoTaxasResponse: TMemo
-        Left = 0
-        Top = 72
-        Width = 984
-        Height = 275
-        Align = alClient
-        ScrollBars = ssVertical
-        TabOrder = 1
-      end
-    end
     object tsNCM: TTabSheet
       Caption = 'NCM'
       ImageIndex = 8
@@ -436,6 +462,7 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
+        ExplicitWidth = 980
         object Label9: TLabel
           Left = 16
           Top = 11
@@ -511,12 +538,14 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
         Align = alClient
         ScrollBars = ssVertical
         TabOrder = 1
+        ExplicitWidth = 980
+        ExplicitHeight = 274
       end
     end
-    object tsIBGE: TTabSheet
-      Caption = 'IBGE'
-      ImageIndex = 9
-      object Panel11: TPanel
+    object tsRegistroBR: TTabSheet
+      Caption = 'RegistroBR'
+      ImageIndex = 5
+      object Panel7: TPanel
         Left = 0
         Top = 0
         Width = 984
@@ -524,50 +553,32 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitWidth = 980
-        object Label11: TLabel
+        object Label6: TLabel
           Left = 16
           Top = 11
-          Width = 46
+          Width = 60
           Height = 21
-          Caption = 'Estado'
+          Caption = 'Dom'#237'nio'
         end
-        object edtIBGEEstado: TEdit
+        object edtDominio: TEdit
           Left = 16
           Top = 34
-          Width = 145
+          Width = 194
           Height = 29
           TabOrder = 0
-          Text = 'RJ'
+          Text = 'google'
         end
-        object btnIBGEListarEstados: TButton
-          Left = 318
+        object btnRegistroBR: TButton
+          Left = 216
           Top = 34
           Width = 137
           Height = 29
-          Caption = 'Listar Estados'
-          TabOrder = 2
-          OnClick = btnIBGEListarEstadosClick
-        end
-        object btnIBGEListarMunicipios: TButton
-          Left = 175
-          Top = 34
-          Width = 137
-          Height = 29
-          Caption = 'Listar Munic'#237'pios'
+          Caption = 'Buscar'
           TabOrder = 1
-          OnClick = btnIBGEListarMunicipiosClick
-        end
-        object btnIBGEBuscaEstado: TButton
-          Left = 461
-          Top = 34
-          Width = 137
-          Height = 29
-          Caption = 'Buscar Estado'
-          TabOrder = 3
+          OnClick = btnRegistroBRClick
         end
       end
-      object mmoIBGEResponse: TMemo
+      object mmoRegistroBRResponse: TMemo
         Left = 0
         Top = 72
         Width = 984
@@ -575,14 +586,67 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
         Align = alClient
         ScrollBars = ssVertical
         TabOrder = 1
-        ExplicitWidth = 980
-        ExplicitHeight = 274
+      end
+    end
+    object tsTaxas: TTabSheet
+      Caption = 'Taxas'
+      ImageIndex = 7
+      object Panel9: TPanel
+        Left = 0
+        Top = 0
+        Width = 984
+        Height = 72
+        Align = alTop
+        BevelOuter = bvNone
+        TabOrder = 0
+        object Label8: TLabel
+          Left = 16
+          Top = 11
+          Width = 43
+          Height = 21
+          Caption = 'Nome'
+        end
+        object edtTaxasNome: TEdit
+          Left = 16
+          Top = 34
+          Width = 145
+          Height = 29
+          TabOrder = 0
+          Text = 'CDI'
+        end
+        object btnTaxasLista: TButton
+          Left = 318
+          Top = 34
+          Width = 137
+          Height = 29
+          Caption = 'Listar Todos'
+          TabOrder = 2
+          OnClick = btnTaxasListaClick
+        end
+        object btnTaxasBusca: TButton
+          Left = 175
+          Top = 34
+          Width = 137
+          Height = 29
+          Caption = 'Buscar Pelo Nome'
+          TabOrder = 1
+          OnClick = btnTaxasBuscaClick
+        end
+      end
+      object mmoTaxasResponse: TMemo
+        Left = 0
+        Top = 72
+        Width = 984
+        Height = 275
+        Align = alClient
+        ScrollBars = ssVertical
+        TabOrder = 1
       end
     end
   end
   object Brasil4D1: TBrasil4D
     BaseUrl = 'https://brasilapi.com.br/api'
-    Left = 672
+    Left = 840
     Top = 25
   end
 end

@@ -20,6 +20,7 @@ type
     FResource: string;
 
     procedure EnviarRequest;
+    procedure ValidarArgumento(ALabel, AValue: string);
   public
     constructor Create; virtual;
     destructor Destroy; override;
@@ -45,6 +46,12 @@ end;
 procedure TBrasil4DCoreWebServices.EnviarRequest;
 begin
   FResponse := FRequest.Send;
+end;
+
+procedure TBrasil4DCoreWebServices.ValidarArgumento(ALabel, AValue: string);
+begin
+  if AValue.Trim.IsEmpty then
+    raise EArgumentException.CreateFmt('Informe o parâmetro %s.', [ALabel]);
 end;
 
 end.

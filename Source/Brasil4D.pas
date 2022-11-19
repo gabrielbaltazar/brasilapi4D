@@ -11,6 +11,7 @@ uses
   Brasil4D.CNPJ.WebServices,
   Brasil4D.DDD.WebServices,
   Brasil4D.FeriadosNacionais.WebServices,
+  Brasil4D.FIPE.WebServices,
   Brasil4D.IBGE.WebServices,
   Brasil4D.ISBN.WebServices,
   Brasil4D.NCM.WebServices,
@@ -22,44 +23,47 @@ type
   private
     FFeriadosNacionais: TBrasil4DFeriadosNacionaisWebServices;
     FBaseUrl: string;
-    FBank: TBrasil4DBankWebSerices;
+    FBank: TBrasil4DBankWebServices;
     FCep: TBrasil4DCEPWebServices;
     FCEPV2: TBrasil4DCEPV2WebServices;
     FCNPJ: TBrasil4DCNPJWebServices;
     FDDD: TBrasil4DDDDWebServices;
     FRegistroBR: TBrasil4DRegistroBRWebServices;
     FISBN: TBrasil4DISBNWebServices;
-    FTaxas: TBrasil4DTaxasWebSerices;
-    FNCM: TBrasil4DNCMWebSerices;
-    FIBGE: TBrasil4DIBGEWebSerices;
+    FTaxas: TBrasil4DTaxasWebServices;
+    FNCM: TBrasil4DNCMWebServices;
+    FIBGE: TBrasil4DIBGEWebServices;
+    FFIPE: TBrasil4DFIPEWebServices;
     function GetFeriadosNacionais: TBrasil4DFeriadosNacionaisWebServices;
-    function GetBank: TBrasil4DBankWebSerices;
+    function GetBank: TBrasil4DBankWebServices;
     function GetCep: TBrasil4DCEPWebServices;
     function GetCepV2: TBrasil4DCEPV2WebServices;
     function GetCNPJ: TBrasil4DCNPJWebServices;
     function GetDDD: TBrasil4DDDDWebServices;
     function GetRegistroBR: TBrasil4DRegistroBRWebServices;
     function GetISBN: TBrasil4DISBNWebServices;
-    function GetTaxas: TBrasil4DTaxasWebSerices;
-    function GetNCM: TBrasil4DNCMWebSerices;
-    function GetIBGE: TBrasil4DIBGEWebSerices;
+    function GetTaxas: TBrasil4DTaxasWebServices;
+    function GetNCM: TBrasil4DNCMWebServices;
+    function GetIBGE: TBrasil4DIBGEWebServices;
+    function GetFIPE: TBrasil4DFIPEWebServices;
   published
     property BaseUrl: string read FBaseUrl write FBaseUrl;
   public
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
 
-    property Bank: TBrasil4DBankWebSerices read GetBank;
+    property Bank: TBrasil4DBankWebServices read GetBank;
     property CEP: TBrasil4DCEPWebServices read GetCep;
     property CEPV2: TBrasil4DCEPV2WebServices read GetCepV2;
     property CNPJ: TBrasil4DCNPJWebServices read GetCNPJ;
     property DDD: TBrasil4DDDDWebServices read GetDDD;
     property FeriadosNacionais: TBrasil4DFeriadosNacionaisWebServices read GetFeriadosNacionais;
-    property IBGE: TBrasil4DIBGEWebSerices read GetIBGE;
+    property FIPE: TBrasil4DFIPEWebServices read GetFIPE;
+    property IBGE: TBrasil4DIBGEWebServices read GetIBGE;
     property ISBN: TBrasil4DISBNWebServices read GetISBN;
-    property NCM: TBrasil4DNCMWebSerices read GetNCM;
+    property NCM: TBrasil4DNCMWebServices read GetNCM;
     property RegistroBR: TBrasil4DRegistroBRWebServices read GetRegistroBR;
-    property Taxas: TBrasil4DTaxasWebSerices read GetTaxas;
+    property Taxas: TBrasil4DTaxasWebServices read GetTaxas;
   end;
 
 implementation
@@ -80,6 +84,7 @@ begin
   FreeAndNil(FCNPJ);
   FreeAndNil(FDDD);
   FreeAndNil(FFeriadosNacionais);
+  FreeAndNil(FFipe);
   FreeAndNil(FIBGE);
   FreeAndNil(FISBN);
   FreeAndNil(FNCM);
@@ -88,10 +93,10 @@ begin
   inherited;
 end;
 
-function TBrasil4D.GetBank: TBrasil4DBankWebSerices;
+function TBrasil4D.GetBank: TBrasil4DBankWebServices;
 begin
   if not Assigned(FBank) then
-    FBank := TBrasil4DBankWebSerices.Create;
+    FBank := TBrasil4DBankWebServices.Create;
   Result := FBank;
 end;
 
@@ -130,10 +135,17 @@ begin
   Result := FFeriadosNacionais;
 end;
 
-function TBrasil4D.GetIBGE: TBrasil4DIBGEWebSerices;
+function TBrasil4D.GetFIPE: TBrasil4DFIPEWebServices;
+begin
+  if not Assigned(FFIPE) then
+    FFIPE := TBrasil4DFIPEWebServices.Create;
+  Result := FFIPE;
+end;
+
+function TBrasil4D.GetIBGE: TBrasil4DIBGEWebServices;
 begin
   if not Assigned(FIBGE) then
-    FIBGE := TBrasil4DIBGEWebSerices.Create;
+    FIBGE := TBrasil4DIBGEWebServices.Create;
   Result := FIBGE;
 end;
 
@@ -144,10 +156,10 @@ begin
   Result := FISBN;
 end;
 
-function TBrasil4D.GetNCM: TBrasil4DNCMWebSerices;
+function TBrasil4D.GetNCM: TBrasil4DNCMWebServices;
 begin
   if not Assigned(FNCM) then
-    FNCM := TBrasil4DNCMWebSerices.Create;
+    FNCM := TBrasil4DNCMWebServices.Create;
   Result := FNCM;
 end;
 
@@ -158,10 +170,10 @@ begin
   Result := FRegistroBR;
 end;
 
-function TBrasil4D.GetTaxas: TBrasil4DTaxasWebSerices;
+function TBrasil4D.GetTaxas: TBrasil4DTaxasWebServices;
 begin
   if not Assigned(FTaxas) then
-    FTaxas := TBrasil4DTaxasWebSerices.Create;
+    FTaxas := TBrasil4DTaxasWebServices.Create;
   Result := FTaxas;
 end;
 

@@ -32,6 +32,14 @@ type
     property DDD: Integer read FDDD;
   end;
 
+  EBrasil4DFIPEException = class(EBrasil4DException)
+  private
+    FCodigoFipe: string;
+  public
+    constructor Create(ACodigoFipe: string; AMessage: string); reintroduce;
+    property CodigoFipe: string read FCodigoFipe;
+  end;
+
   EBrasil4DIBGEException = class(EBrasil4DException)
   private
     FUF: string;
@@ -136,6 +144,14 @@ constructor EBrasil4DIBGEException.Create(AUF, AMessage: string);
 begin
   inherited Create(AMessage);
   FUF := AUF;
+end;
+
+{ EBrasil4DFIPEException }
+
+constructor EBrasil4DFIPEException.Create(ACodigoFipe, AMessage: string);
+begin
+  inherited Create(AMessage);
+  FCodigoFipe := ACodigoFipe;
 end;
 
 end.

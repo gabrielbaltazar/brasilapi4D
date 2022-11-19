@@ -6,7 +6,9 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
   System.DateUtils,
-  Brasil4D, Vcl.ComCtrls;
+  Vcl.ComCtrls,
+  Brasil4D,
+  Brasil4D.FIPE.Schemas;
 
 type
   TfrmBrasil4DExemplo = class(TForm)
@@ -83,6 +85,14 @@ type
     btnIBGEListarMunicipios: TButton;
     btnIBGEBuscaEstado: TButton;
     mmoIBGEResponse: TMemo;
+    tsFIPE: TTabSheet;
+    Panel12: TPanel;
+    Label12: TLabel;
+    edtFipeCodigo: TEdit;
+    btnFipePrecoVeiculos: TButton;
+    btnFipeListarMarcas: TButton;
+    btnFipeTabelas: TButton;
+    mmoFIPEResponse: TMemo;
     procedure FormCreate(Sender: TObject);
     procedure btnListarClick(Sender: TObject);
     procedure btnBankBuscarClick(Sender: TObject);
@@ -101,6 +111,10 @@ type
     procedure btnNCMBuscaClick(Sender: TObject);
     procedure btnIBGEListarMunicipiosClick(Sender: TObject);
     procedure btnIBGEListarEstadosClick(Sender: TObject);
+    procedure btnIBGEBuscaEstadoClick(Sender: TObject);
+    procedure btnFipeListarMarcasClick(Sender: TObject);
+    procedure btnFipePrecoVeiculosClick(Sender: TObject);
+    procedure btnFipeTabelasClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -205,6 +219,69 @@ begin
     mmoDDDResponse.Lines.Add('  ' + Brasil4D1.DDD.Retorno.Cities[I]);
 end;
 
+procedure TfrmBrasil4DExemplo.btnFipeListarMarcasClick(Sender: TObject);
+var
+  I: Integer;
+begin
+  mmoFIPEResponse.Clear;
+  Brasil4D1.FIPE.Marca.TipoVeiculo := tvCarros;
+  Brasil4D1.FIPE.Marca.Executar;
+
+  for I := 0 to Pred(Brasil4D1.FIPE.Marca.Retorno.Count) do
+  begin
+    mmoFIPEResponse.Lines.Add('Nome: ' + Brasil4D1.FIPE.Marca.Retorno[I].Nome);
+    mmoFIPEResponse.Lines.Add('Valor: ' + Brasil4D1.FIPE.Marca.Retorno[I].Valor);
+    mmoFIPEResponse.Lines.Add(EmptyStr);
+  end;
+end;
+
+procedure TfrmBrasil4DExemplo.btnFipePrecoVeiculosClick(Sender: TObject);
+var
+  I: Integer;
+begin
+  mmoFIPEResponse.Clear;
+  Brasil4D1.FIPE.Veiculo.CodigoFipe := edtFipeCodigo.Text;
+  Brasil4D1.FIPE.Veiculo.Executar;
+
+  for I := 0 to Pred(Brasil4D1.FIPE.Veiculo.Retorno.Count) do
+  begin
+    mmoFIPEResponse.Lines.Add('Modelo: ' + Brasil4D1.FIPE.Veiculo.Retorno[I].Modelo);
+    mmoFIPEResponse.Lines.Add('Valor: ' + Brasil4D1.FIPE.Veiculo.Retorno[I].Valor);
+    mmoFIPEResponse.Lines.Add('Marca: ' + Brasil4D1.FIPE.Veiculo.Retorno[I].Marca);
+    mmoFIPEResponse.Lines.Add('Ano: ' + Brasil4D1.FIPE.Veiculo.Retorno[I].AnoModelo.ToString);
+    mmoFIPEResponse.Lines.Add('Combustivel: ' + Brasil4D1.FIPE.Veiculo.Retorno[I].Combustivel);
+    mmoFIPEResponse.Lines.Add('MesReferencia: ' + Brasil4D1.FIPE.Veiculo.Retorno[I].MesReferencia);
+    mmoFIPEResponse.Lines.Add('Tipo Veículo: ' + Brasil4D1.FIPE.Veiculo.Retorno[I].TipoVeiculo.ToString);
+    mmoFIPEResponse.Lines.Add(EmptyStr);
+  end;
+end;
+
+procedure TfrmBrasil4DExemplo.btnFipeTabelasClick(Sender: TObject);
+var
+  I: Integer;
+begin
+  mmoFIPEResponse.Clear;
+  Brasil4D1.FIPE.Tabela.Executar;
+
+  for I := 0 to Pred(Brasil4D1.FIPE.Tabela.Retorno.Count) do
+  begin
+    mmoFIPEResponse.Lines.Add('Codigo: ' + Brasil4D1.FIPE.Tabela.Retorno[I].Codigo.ToString);
+    mmoFIPEResponse.Lines.Add('Mes: ' + Brasil4D1.FIPE.Tabela.Retorno[I].Mes);
+    mmoFIPEResponse.Lines.Add(EmptyStr);
+  end;
+end;
+
+procedure TfrmBrasil4DExemplo.btnIBGEBuscaEstadoClick(Sender: TObject);
+begin
+  mmoIBGEResponse.Clear;
+  Brasil4D1.IBGE.EstadosBusca.SiglaUF := edtIBGEEstado.Text;
+  Brasil4D1.IBGE.EstadosBusca.Executar;
+  mmoIBGEResponse.Lines.Add('Nome: ' + Brasil4D1.IBGE.EstadosBusca.Retorno.Nome);
+  mmoIBGEResponse.Lines.Add('Sigla: ' + Brasil4D1.IBGE.EstadosBusca.Retorno.Sigla);
+  mmoIBGEResponse.Lines.Add('Nome Região: ' + Brasil4D1.IBGE.EstadosBusca.Retorno.NomeRegiao);
+  mmoIBGEResponse.Lines.Add('Sigla Região: ' + Brasil4D1.IBGE.EstadosBusca.Retorno.SiglaRegiao);
+end;
+
 procedure TfrmBrasil4DExemplo.btnIBGEListarEstadosClick(Sender: TObject);
 var
   I: Integer;
@@ -227,7 +304,7 @@ var
   I: Integer;
 begin
   mmoIBGEResponse.Clear;
-  Brasil4D1.IBGE.Municipios.UF := edtIBGEEstado.Text;
+  Brasil4D1.IBGE.Municipios.SiglaUF := edtIBGEEstado.Text;
   Brasil4D1.IBGE.Municipios.Executar;
 
   for I := 0 to Pred(Brasil4D1.IBGE.Municipios.Retorno.Count) do

@@ -17,7 +17,7 @@ type
   TBrasil4DBankWebServicesLista = class;
   TBrasil4DBankWebServicesBusca = class;
 
-  TBrasil4DBankWebSerices = class
+  TBrasil4DBankWebServices = class
   private
     FLista: TBrasil4DBankWebServicesLista;
     FBusca: TBrasil4DBankWebServicesBusca;
@@ -135,23 +135,23 @@ begin
   Result := FRetorno;
 end;
 
-{ TBrasil4DBankWebSerices }
+{ TBrasil4DBankWebServices }
 
-destructor TBrasil4DBankWebSerices.Destroy;
+destructor TBrasil4DBankWebServices.Destroy;
 begin
   FreeAndNil(FLista);
   FreeAndNil(FBusca);
   inherited;
 end;
 
-function TBrasil4DBankWebSerices.GetBusca: TBrasil4DBankWebServicesBusca;
+function TBrasil4DBankWebServices.GetBusca: TBrasil4DBankWebServicesBusca;
 begin
   if not Assigned(FBusca) then
     FBusca := TBrasil4DBankWebServicesBusca.Create;
   Result := FBusca;
 end;
 
-function TBrasil4DBankWebSerices.GetLista: TBrasil4DBankWebServicesLista;
+function TBrasil4DBankWebServices.GetLista: TBrasil4DBankWebServicesLista;
 begin
   if not Assigned(FLista) then
     FLista := TBrasil4DBankWebServicesLista.Create;
