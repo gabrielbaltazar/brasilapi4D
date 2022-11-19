@@ -32,6 +32,22 @@ type
     property DDD: Integer read FDDD;
   end;
 
+  EBrasil4DIBGEException = class(EBrasil4DException)
+  private
+    FUF: string;
+  public
+    constructor Create(AUF: string; AMessage: string); reintroduce;
+    property UF: string read FUF;
+  end;
+
+  EBrasil4DNCMException = class(EBrasil4DException)
+  private
+    FCodigo: string;
+  public
+    constructor Create(ACodigo: string; AMessage: string); reintroduce;
+    property Codigo: string read FCodigo;
+  end;
+
   EBrasil4DRegistroBRException = class(EBrasil4DException)
   private
     FDomain: string;
@@ -46,6 +62,14 @@ type
   public
     constructor Create(AISBN: string; AMessage: string); reintroduce;
     property ISBN: string read FISBN;
+  end;
+
+  EBrasil4DTaxasException = class(EBrasil4DException)
+  private
+    FNome: string;
+  public
+    constructor Create(ANome: string; AMessage: string); reintroduce;
+    property Nome: string read FNome;
   end;
 
 implementation
@@ -88,6 +112,30 @@ constructor EBrasil4DISBNException.Create(AISBN, AMessage: string);
 begin
   inherited Create(AMessage);
   FISBN := AISBN;
+end;
+
+{ EBrasil4DTaxasException }
+
+constructor EBrasil4DTaxasException.Create(ANome, AMessage: string);
+begin
+  inherited Create(AMessage);
+  FNome := ANome;
+end;
+
+{ EBrasil4DNCMException }
+
+constructor EBrasil4DNCMException.Create(ACodigo, AMessage: string);
+begin
+  inherited Create(AMessage);
+  FCodigo := ACodigo;
+end;
+
+{ EBrasil4DIBGEException }
+
+constructor EBrasil4DIBGEException.Create(AUF, AMessage: string);
+begin
+  inherited Create(AMessage);
+  FUF := AUF;
 end;
 
 end.

@@ -4,7 +4,7 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
   BorderStyle = bsDialog
   Caption = 'Brasil 4D'
   ClientHeight = 424
-  ClientWidth = 825
+  ClientWidth = 992
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,30 +17,30 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 825
+    Width = 992
     Height = 41
     Align = alTop
     BevelOuter = bvNone
     Caption = 'Brasil API 4 Delphi'
     TabOrder = 0
-    ExplicitWidth = 821
+    ExplicitWidth = 988
   end
   object pgcBrasilAPI: TPageControl
     Left = 0
     Top = 41
-    Width = 825
+    Width = 992
     Height = 383
-    ActivePage = tsISBN
+    ActivePage = tsIBGE
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 821
+    ExplicitWidth = 988
     ExplicitHeight = 382
     object tsBank: TTabSheet
       Caption = 'Bank'
       object Panel3: TPanel
         Left = 0
         Top = 0
-        Width = 817
+        Width = 984
         Height = 72
         Align = alTop
         BevelOuter = bvNone
@@ -81,7 +81,7 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
       object mmoBankResponse: TMemo
         Left = 0
         Top = 72
-        Width = 817
+        Width = 984
         Height = 275
         Align = alClient
         ScrollBars = ssVertical
@@ -94,7 +94,7 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
       object Panel2: TPanel
         Left = 0
         Top = 0
-        Width = 817
+        Width = 984
         Height = 72
         Align = alTop
         BevelOuter = bvNone
@@ -126,7 +126,7 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
       object mmoResponse: TMemo
         Left = 0
         Top = 72
-        Width = 817
+        Width = 984
         Height = 275
         Align = alClient
         ScrollBars = ssVertical
@@ -139,7 +139,7 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
       object Panel4: TPanel
         Left = 0
         Top = 0
-        Width = 817
+        Width = 984
         Height = 72
         Align = alTop
         BevelOuter = bvNone
@@ -180,7 +180,7 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
       object mmoCepResponse: TMemo
         Left = 0
         Top = 72
-        Width = 817
+        Width = 984
         Height = 275
         Align = alClient
         ScrollBars = ssVertical
@@ -193,7 +193,7 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
       object Panel5: TPanel
         Left = 0
         Top = 0
-        Width = 817
+        Width = 984
         Height = 72
         Align = alTop
         BevelOuter = bvNone
@@ -225,7 +225,7 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
       object mmoCNPJResponse: TMemo
         Left = 0
         Top = 72
-        Width = 817
+        Width = 984
         Height = 275
         Align = alClient
         ScrollBars = ssVertical
@@ -238,7 +238,7 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
       object Panel6: TPanel
         Left = 0
         Top = 0
-        Width = 817
+        Width = 984
         Height = 72
         Align = alTop
         BevelOuter = bvNone
@@ -271,7 +271,7 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
       object mmoDDDResponse: TMemo
         Left = 0
         Top = 72
-        Width = 817
+        Width = 984
         Height = 275
         Align = alClient
         ScrollBars = ssVertical
@@ -284,7 +284,7 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
       object Panel7: TPanel
         Left = 0
         Top = 0
-        Width = 817
+        Width = 984
         Height = 72
         Align = alTop
         BevelOuter = bvNone
@@ -317,7 +317,7 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
       object mmoRegistroBRResponse: TMemo
         Left = 0
         Top = 72
-        Width = 817
+        Width = 984
         Height = 275
         Align = alClient
         ScrollBars = ssVertical
@@ -330,12 +330,11 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
       object Panel8: TPanel
         Left = 0
         Top = 0
-        Width = 817
+        Width = 984
         Height = 72
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitWidth = 813
         object Label7: TLabel
           Left = 16
           Top = 11
@@ -364,12 +363,219 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
       object mmoISBNResponse: TMemo
         Left = 0
         Top = 72
-        Width = 817
+        Width = 984
         Height = 275
         Align = alClient
         ScrollBars = ssVertical
         TabOrder = 1
-        ExplicitWidth = 813
+      end
+    end
+    object tsTaxas: TTabSheet
+      Caption = 'Taxas'
+      ImageIndex = 7
+      object Panel9: TPanel
+        Left = 0
+        Top = 0
+        Width = 984
+        Height = 72
+        Align = alTop
+        BevelOuter = bvNone
+        TabOrder = 0
+        object Label8: TLabel
+          Left = 16
+          Top = 11
+          Width = 43
+          Height = 21
+          Caption = 'Nome'
+        end
+        object edtTaxasNome: TEdit
+          Left = 16
+          Top = 34
+          Width = 145
+          Height = 29
+          TabOrder = 0
+          Text = 'CDI'
+        end
+        object btnTaxasLista: TButton
+          Left = 318
+          Top = 34
+          Width = 137
+          Height = 29
+          Caption = 'Listar Todos'
+          TabOrder = 2
+          OnClick = btnTaxasListaClick
+        end
+        object btnTaxasBusca: TButton
+          Left = 175
+          Top = 34
+          Width = 137
+          Height = 29
+          Caption = 'Buscar Pelo Nome'
+          TabOrder = 1
+          OnClick = btnTaxasBuscaClick
+        end
+      end
+      object mmoTaxasResponse: TMemo
+        Left = 0
+        Top = 72
+        Width = 984
+        Height = 275
+        Align = alClient
+        ScrollBars = ssVertical
+        TabOrder = 1
+      end
+    end
+    object tsNCM: TTabSheet
+      Caption = 'NCM'
+      ImageIndex = 8
+      object Panel10: TPanel
+        Left = 0
+        Top = 0
+        Width = 984
+        Height = 72
+        Align = alTop
+        BevelOuter = bvNone
+        TabOrder = 0
+        object Label9: TLabel
+          Left = 16
+          Top = 11
+          Width = 50
+          Height = 21
+          Caption = 'Codigo'
+        end
+        object Label10: TLabel
+          Left = 176
+          Top = 11
+          Width = 67
+          Height = 21
+          Caption = 'Descri'#231#227'o'
+        end
+        object edtNCMCodigo: TEdit
+          Left = 16
+          Top = 34
+          Width = 145
+          Height = 29
+          TabOrder = 0
+          Text = '03061790'
+        end
+        object btnNCMListarTodos: TButton
+          Left = 334
+          Top = 34
+          Width = 137
+          Height = 29
+          Caption = 'Listar Todos'
+          TabOrder = 2
+          OnClick = btnNCMListarTodosClick
+        end
+        object btnNCMListaPeloCodigo: TButton
+          Left = 477
+          Top = 34
+          Width = 137
+          Height = 29
+          Caption = 'Lista Por Codigo'
+          TabOrder = 1
+          OnClick = btnNCMListaPeloCodigoClick
+        end
+        object edtNCMDescricao: TEdit
+          Left = 176
+          Top = 34
+          Width = 145
+          Height = 29
+          TabOrder = 3
+          Text = 'Outros'
+        end
+        object btnNCMListaPorDescricao: TButton
+          Left = 620
+          Top = 34
+          Width = 137
+          Height = 29
+          Caption = 'Lista Por Descri'#231#227'o'
+          TabOrder = 4
+          OnClick = btnNCMListaPorDescricaoClick
+        end
+        object btnNCMBusca: TButton
+          Left = 763
+          Top = 34
+          Width = 137
+          Height = 29
+          Caption = 'Busca'
+          TabOrder = 5
+          OnClick = btnNCMBuscaClick
+        end
+      end
+      object mmoNCMResponse: TMemo
+        Left = 0
+        Top = 72
+        Width = 984
+        Height = 275
+        Align = alClient
+        ScrollBars = ssVertical
+        TabOrder = 1
+      end
+    end
+    object tsIBGE: TTabSheet
+      Caption = 'IBGE'
+      ImageIndex = 9
+      object Panel11: TPanel
+        Left = 0
+        Top = 0
+        Width = 984
+        Height = 72
+        Align = alTop
+        BevelOuter = bvNone
+        TabOrder = 0
+        ExplicitWidth = 980
+        object Label11: TLabel
+          Left = 16
+          Top = 11
+          Width = 46
+          Height = 21
+          Caption = 'Estado'
+        end
+        object edtIBGEEstado: TEdit
+          Left = 16
+          Top = 34
+          Width = 145
+          Height = 29
+          TabOrder = 0
+          Text = 'RJ'
+        end
+        object btnIBGEListarEstados: TButton
+          Left = 318
+          Top = 34
+          Width = 137
+          Height = 29
+          Caption = 'Listar Estados'
+          TabOrder = 2
+          OnClick = btnIBGEListarEstadosClick
+        end
+        object btnIBGEListarMunicipios: TButton
+          Left = 175
+          Top = 34
+          Width = 137
+          Height = 29
+          Caption = 'Listar Munic'#237'pios'
+          TabOrder = 1
+          OnClick = btnIBGEListarMunicipiosClick
+        end
+        object btnIBGEBuscaEstado: TButton
+          Left = 461
+          Top = 34
+          Width = 137
+          Height = 29
+          Caption = 'Buscar Estado'
+          TabOrder = 3
+        end
+      end
+      object mmoIBGEResponse: TMemo
+        Left = 0
+        Top = 72
+        Width = 984
+        Height = 275
+        Align = alClient
+        ScrollBars = ssVertical
+        TabOrder = 1
+        ExplicitWidth = 980
         ExplicitHeight = 274
       end
     end

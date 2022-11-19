@@ -154,6 +154,12 @@
         <DCCReference Include="..\Source\Brasil4D.Rest.Base.pas"/>
         <DCCReference Include="..\Source\Brasil4D.Rest.RestClient.pas"/>
         <DCCReference Include="..\Source\Brasil4D.Schemas.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.Taxas.Schemas.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.Taxas.WebServices.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.NCM.Schemas.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.NCM.WebServices.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.IBGE.Schemas.pas"/>
+        <DCCReference Include="..\Source\Brasil4D.IBGE.WebServices.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

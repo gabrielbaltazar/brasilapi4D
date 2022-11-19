@@ -65,6 +65,12 @@ contains
   Brasil4D.RegistroBR.WebServices in '..\Source\Brasil4D.RegistroBR.WebServices.pas',
   Brasil4D.Rest.Base in '..\Source\Brasil4D.Rest.Base.pas',
   Brasil4D.Rest.RestClient in '..\Source\Brasil4D.Rest.RestClient.pas',
-  Brasil4D.Schemas in '..\Source\Brasil4D.Schemas.pas';
+  Brasil4D.Schemas in '..\Source\Brasil4D.Schemas.pas',
+  Brasil4D.Taxas.Schemas in '..\Source\Brasil4D.Taxas.Schemas.pas',
+  Brasil4D.Taxas.WebServices in '..\Source\Brasil4D.Taxas.WebServices.pas',
+  Brasil4D.NCM.Schemas in '..\Source\Brasil4D.NCM.Schemas.pas',
+  Brasil4D.NCM.WebServices in '..\Source\Brasil4D.NCM.WebServices.pas',
+  Brasil4D.IBGE.Schemas in '..\Source\Brasil4D.IBGE.Schemas.pas',
+  Brasil4D.IBGE.WebServices in '..\Source\Brasil4D.IBGE.WebServices.pas';
 
 end.

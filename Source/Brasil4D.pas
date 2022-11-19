@@ -11,8 +11,11 @@ uses
   Brasil4D.CNPJ.WebServices,
   Brasil4D.DDD.WebServices,
   Brasil4D.FeriadosNacionais.WebServices,
+  Brasil4D.IBGE.WebServices,
   Brasil4D.ISBN.WebServices,
-  Brasil4D.RegistroBR.WebServices;
+  Brasil4D.NCM.WebServices,
+  Brasil4D.RegistroBR.WebServices,
+  Brasil4D.Taxas.WebServices;
 
 type
   TBrasil4D = class(TComponent)
@@ -26,6 +29,9 @@ type
     FDDD: TBrasil4DDDDWebServices;
     FRegistroBR: TBrasil4DRegistroBRWebServices;
     FISBN: TBrasil4DISBNWebServices;
+    FTaxas: TBrasil4DTaxasWebSerices;
+    FNCM: TBrasil4DNCMWebSerices;
+    FIBGE: TBrasil4DIBGEWebSerices;
     function GetFeriadosNacionais: TBrasil4DFeriadosNacionaisWebServices;
     function GetBank: TBrasil4DBankWebSerices;
     function GetCep: TBrasil4DCEPWebServices;
@@ -34,6 +40,9 @@ type
     function GetDDD: TBrasil4DDDDWebServices;
     function GetRegistroBR: TBrasil4DRegistroBRWebServices;
     function GetISBN: TBrasil4DISBNWebServices;
+    function GetTaxas: TBrasil4DTaxasWebSerices;
+    function GetNCM: TBrasil4DNCMWebSerices;
+    function GetIBGE: TBrasil4DIBGEWebSerices;
   published
     property BaseUrl: string read FBaseUrl write FBaseUrl;
   public
@@ -46,8 +55,11 @@ type
     property CNPJ: TBrasil4DCNPJWebServices read GetCNPJ;
     property DDD: TBrasil4DDDDWebServices read GetDDD;
     property FeriadosNacionais: TBrasil4DFeriadosNacionaisWebServices read GetFeriadosNacionais;
+    property IBGE: TBrasil4DIBGEWebSerices read GetIBGE;
     property ISBN: TBrasil4DISBNWebServices read GetISBN;
+    property NCM: TBrasil4DNCMWebSerices read GetNCM;
     property RegistroBR: TBrasil4DRegistroBRWebServices read GetRegistroBR;
+    property Taxas: TBrasil4DTaxasWebSerices read GetTaxas;
   end;
 
 implementation
@@ -68,8 +80,11 @@ begin
   FreeAndNil(FCNPJ);
   FreeAndNil(FDDD);
   FreeAndNil(FFeriadosNacionais);
+  FreeAndNil(FIBGE);
   FreeAndNil(FISBN);
+  FreeAndNil(FNCM);
   FreeAndNil(FRegistroBR);
+  FreeAndNil(FTaxas);
   inherited;
 end;
 
@@ -115,6 +130,13 @@ begin
   Result := FFeriadosNacionais;
 end;
 
+function TBrasil4D.GetIBGE: TBrasil4DIBGEWebSerices;
+begin
+  if not Assigned(FIBGE) then
+    FIBGE := TBrasil4DIBGEWebSerices.Create;
+  Result := FIBGE;
+end;
+
 function TBrasil4D.GetISBN: TBrasil4DISBNWebServices;
 begin
   if not Assigned(FISBN) then
@@ -122,11 +144,25 @@ begin
   Result := FISBN;
 end;
 
+function TBrasil4D.GetNCM: TBrasil4DNCMWebSerices;
+begin
+  if not Assigned(FNCM) then
+    FNCM := TBrasil4DNCMWebSerices.Create;
+  Result := FNCM;
+end;
+
 function TBrasil4D.GetRegistroBR: TBrasil4DRegistroBRWebServices;
 begin
   if not Assigned(FRegistroBR) then
     FRegistroBR := TBrasil4DRegistroBRWebServices.Create;
   Result := FRegistroBR;
+end;
+
+function TBrasil4D.GetTaxas: TBrasil4DTaxasWebSerices;
+begin
+  if not Assigned(FTaxas) then
+    FTaxas := TBrasil4DTaxasWebSerices.Create;
+  Result := FTaxas;
 end;
 
 end.

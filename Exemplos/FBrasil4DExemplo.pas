@@ -57,6 +57,32 @@ type
     edtISBN: TEdit;
     btnISBN: TButton;
     mmoISBNResponse: TMemo;
+    tsTaxas: TTabSheet;
+    Panel9: TPanel;
+    Label8: TLabel;
+    edtTaxasNome: TEdit;
+    btnTaxasLista: TButton;
+    btnTaxasBusca: TButton;
+    mmoTaxasResponse: TMemo;
+    tsNCM: TTabSheet;
+    Panel10: TPanel;
+    Label9: TLabel;
+    edtNCMCodigo: TEdit;
+    btnNCMListarTodos: TButton;
+    btnNCMListaPeloCodigo: TButton;
+    Label10: TLabel;
+    edtNCMDescricao: TEdit;
+    btnNCMListaPorDescricao: TButton;
+    btnNCMBusca: TButton;
+    mmoNCMResponse: TMemo;
+    tsIBGE: TTabSheet;
+    Panel11: TPanel;
+    Label11: TLabel;
+    edtIBGEEstado: TEdit;
+    btnIBGEListarEstados: TButton;
+    btnIBGEListarMunicipios: TButton;
+    btnIBGEBuscaEstado: TButton;
+    mmoIBGEResponse: TMemo;
     procedure FormCreate(Sender: TObject);
     procedure btnListarClick(Sender: TObject);
     procedure btnBankBuscarClick(Sender: TObject);
@@ -67,6 +93,14 @@ type
     procedure btnDDDClick(Sender: TObject);
     procedure btnRegistroBRClick(Sender: TObject);
     procedure btnISBNClick(Sender: TObject);
+    procedure btnTaxasListaClick(Sender: TObject);
+    procedure btnTaxasBuscaClick(Sender: TObject);
+    procedure btnNCMListarTodosClick(Sender: TObject);
+    procedure btnNCMListaPeloCodigoClick(Sender: TObject);
+    procedure btnNCMListaPorDescricaoClick(Sender: TObject);
+    procedure btnNCMBuscaClick(Sender: TObject);
+    procedure btnIBGEListarMunicipiosClick(Sender: TObject);
+    procedure btnIBGEListarEstadosClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -171,9 +205,40 @@ begin
     mmoDDDResponse.Lines.Add('  ' + Brasil4D1.DDD.Retorno.Cities[I]);
 end;
 
-procedure TfrmBrasil4DExemplo.btnISBNClick(Sender: TObject);
+procedure TfrmBrasil4DExemplo.btnIBGEListarEstadosClick(Sender: TObject);
 var
   I: Integer;
+begin
+  mmoIBGEResponse.Clear;
+  Brasil4D1.IBGE.EstadosLista.Executar;
+
+  for I := 0 to Pred(Brasil4D1.IBGE.EstadosLista.Retorno.Count) do
+  begin
+    mmoIBGEResponse.Lines.Add('Nome: ' + Brasil4D1.IBGE.EstadosLista.Retorno[I].Nome);
+    mmoIBGEResponse.Lines.Add('Sigla: ' + Brasil4D1.IBGE.EstadosLista.Retorno[I].Sigla);
+    mmoIBGEResponse.Lines.Add('Nome Região: ' + Brasil4D1.IBGE.EstadosLista.Retorno[I].NomeRegiao);
+    mmoIBGEResponse.Lines.Add('Sigla Região: ' + Brasil4D1.IBGE.EstadosLista.Retorno[I].SiglaRegiao);
+    mmoIBGEResponse.Lines.Add(EmptyStr);
+  end;
+end;
+
+procedure TfrmBrasil4DExemplo.btnIBGEListarMunicipiosClick(Sender: TObject);
+var
+  I: Integer;
+begin
+  mmoIBGEResponse.Clear;
+  Brasil4D1.IBGE.Municipios.UF := edtIBGEEstado.Text;
+  Brasil4D1.IBGE.Municipios.Executar;
+
+  for I := 0 to Pred(Brasil4D1.IBGE.Municipios.Retorno.Count) do
+  begin
+    mmoIBGEResponse.Lines.Add('Nome: ' + Brasil4D1.IBGE.Municipios.Retorno[I].Nome);
+    mmoIBGEResponse.Lines.Add('Codigo IBGE: ' + Brasil4D1.IBGE.Municipios.Retorno[I].CodigoIBGE);
+    mmoIBGEResponse.Lines.Add(EmptyStr);
+  end;
+end;
+
+procedure TfrmBrasil4DExemplo.btnISBNClick(Sender: TObject);
 begin
   mmoISBNResponse.Clear;
   Brasil4D1.ISBN.ISBN := edtISBN.Text;
@@ -200,6 +265,68 @@ begin
   end;
 end;
 
+procedure TfrmBrasil4DExemplo.btnNCMBuscaClick(Sender: TObject);
+begin
+  mmoNCMResponse.Clear;
+  Brasil4D1.NCM.Busca.Codigo := edtNCMDescricao.Text;
+  Brasil4D1.NCM.Lista.Executar;
+
+  mmoNCMResponse.Lines.Add('Código: ' + Brasil4D1.NCM.Busca.Retorno.Codigo);
+  mmoNCMResponse.Lines.Add('Descrição: ' + Brasil4D1.NCM.Busca.Retorno.Descricao);
+  mmoNCMResponse.Lines.Add('Número Ato: ' + Brasil4D1.NCM.Busca.Retorno.NumeroAto);
+  mmoNCMResponse.Lines.Add('Ano Ato: ' + Brasil4D1.NCM.Busca.Retorno.AnoAto);
+end;
+
+procedure TfrmBrasil4DExemplo.btnNCMListaPeloCodigoClick(Sender: TObject);
+var
+  I: Integer;
+begin
+  mmoNCMResponse.Clear;
+  Brasil4D1.NCM.Lista.Codigo := edtNCMCodigo.Text;
+  Brasil4D1.NCM.Lista.Executar;
+
+  for I := 0 to Pred(Brasil4D1.NCM.Lista.Retorno.Count) do
+  begin
+    mmoNCMResponse.Lines.Add('Código: ' + Brasil4D1.NCM.Lista.Retorno[I].Codigo);
+    mmoNCMResponse.Lines.Add('Descrição: ' + Brasil4D1.NCM.Lista.Retorno[I].Descricao);
+    mmoNCMResponse.Lines.Add('Número Ato: ' + Brasil4D1.NCM.Lista.Retorno[I].NumeroAto);
+    mmoNCMResponse.Lines.Add('Ano Ato: ' + Brasil4D1.NCM.Lista.Retorno[I].AnoAto);
+  end;
+end;
+
+procedure TfrmBrasil4DExemplo.btnNCMListaPorDescricaoClick(Sender: TObject);
+var
+  I: Integer;
+begin
+  mmoNCMResponse.Clear;
+  Brasil4D1.NCM.Lista.Descricao := edtNCMDescricao.Text;
+  Brasil4D1.NCM.Lista.Executar;
+
+  for I := 0 to Pred(Brasil4D1.NCM.Lista.Retorno.Count) do
+  begin
+    mmoNCMResponse.Lines.Add('Código: ' + Brasil4D1.NCM.Lista.Retorno[I].Codigo);
+    mmoNCMResponse.Lines.Add('Descrição: ' + Brasil4D1.NCM.Lista.Retorno[I].Descricao);
+    mmoNCMResponse.Lines.Add('Número Ato: ' + Brasil4D1.NCM.Lista.Retorno[I].NumeroAto);
+    mmoNCMResponse.Lines.Add('Ano Ato: ' + Brasil4D1.NCM.Lista.Retorno[I].AnoAto);
+  end;
+end;
+
+procedure TfrmBrasil4DExemplo.btnNCMListarTodosClick(Sender: TObject);
+var
+  I: Integer;
+begin
+  mmoNCMResponse.Clear;
+  Brasil4D1.NCM.Lista.Executar;
+
+  for I := 0 to Pred(Brasil4D1.NCM.Lista.Retorno.Count) do
+  begin
+    mmoNCMResponse.Lines.Add('Código: ' + Brasil4D1.NCM.Lista.Retorno[I].Codigo);
+    mmoNCMResponse.Lines.Add('Descrição: ' + Brasil4D1.NCM.Lista.Retorno[I].Descricao);
+    mmoNCMResponse.Lines.Add('Número Ato: ' + Brasil4D1.NCM.Lista.Retorno[I].NumeroAto);
+    mmoNCMResponse.Lines.Add('Ano Ato: ' + Brasil4D1.NCM.Lista.Retorno[I].AnoAto);
+  end;
+end;
+
 procedure TfrmBrasil4DExemplo.btnRegistroBRClick(Sender: TObject);
 begin
   mmoRegistroBRResponse.Clear;
@@ -210,6 +337,31 @@ begin
   mmoRegistroBRResponse.Lines.Add('Status Code: ' + Brasil4D1.RegistroBR.Retorno.StatusCode.ToString);
   mmoRegistroBRResponse.Lines.Add('Status: ' + Brasil4D1.RegistroBR.Retorno.Status);
   mmoRegistroBRResponse.Lines.Add('Publication Status: ' + Brasil4D1.RegistroBR.Retorno.PublicationStatus);
+end;
+
+procedure TfrmBrasil4DExemplo.btnTaxasBuscaClick(Sender: TObject);
+begin
+  mmoTaxasResponse.Clear;
+  Brasil4D1.Taxas.Busca.Nome := edtTaxasNome.Text;
+  Brasil4D1.Taxas.Busca.Executar;
+
+  mmoTaxasResponse.Lines.Add('Nome: ' + Brasil4D1.Taxas.Busca.Retorno.Nome);
+  mmoTaxasResponse.Lines.Add('Valor: ' + Brasil4D1.Taxas.Busca.Retorno.Valor.ToString);
+end;
+
+procedure TfrmBrasil4DExemplo.btnTaxasListaClick(Sender: TObject);
+var
+  I: Integer;
+begin
+  mmoTaxasResponse.Clear;
+  Brasil4D1.Taxas.Lista.Executar;
+
+  for I := 0 to Pred(Brasil4D1.Taxas.Lista.Retorno.Count) do
+  begin
+    mmoTaxasResponse.Lines.Add('Nome: ' + Brasil4D1.Taxas.Lista.Retorno[I].Nome);
+    mmoTaxasResponse.Lines.Add('Valor: ' + Brasil4D1.Taxas.Lista.Retorno[I].Valor.ToString);
+    mmoTaxasResponse.Lines.Add(EmptyStr);
+  end;
 end;
 
 destructor TfrmBrasil4DExemplo.Destroy;
