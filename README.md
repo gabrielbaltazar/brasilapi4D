@@ -1,6 +1,6 @@
 # BrasilAPI4D
 
-<p>Esse é um componente que consome de forma bem simples os endpoints da [BrasilAPI](https://brasilapi.com.br/docs#). Os Serviços implementados são:</p>
+Esse é um componente que consome de forma bem simples os endpoints da [BrasilAPI](https://brasilapi.com.br/docs#) . Os Serviços implementados são:
 
 * [Bank - Informações sobre sistema bancário](https://brasilapi.com.br/docs#tag/BANKS)
 * [CEP - Busca por CEP com múltiplos providers de fallback.](https://brasilapi.com.br/docs#tag/CEP)
