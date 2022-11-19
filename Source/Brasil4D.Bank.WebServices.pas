@@ -5,9 +5,11 @@ interface
 uses
   Brasil4D.Core.WebServices,
   Brasil4D.Core.Constants,
+  Brasil4D.Core.Exceptions,
   Brasil4D.Rest.Base,
   Brasil4D.Rest.RestClient,
   Brasil4D.Bank.Schemas,
+  Brasil4D.Helper.JSON,
   System.DateUtils,
   System.JSON,
   System.SysUtils,
@@ -114,6 +116,7 @@ procedure TBrasil4DBankWebServicesBusca.Executar;
 var
   LJSON: TJSONObject;
   LResource: string;
+  LErro: string;
 begin
   FreeAndNil(FRetorno);
   LResource := FResource + '/' + FCode.ToString;
@@ -124,6 +127,9 @@ begin
 
   EnviarRequest;
   LJSON := FResponse.GetJSONObject;
+  LErro := LJSON.ValueAsString('message');
+  if LErro <> EmptyStr then
+    raise EBrasil4DBankException.Create(FCode, LErro);
   FRetorno := TBrasil4DBankSchema.Create;
   FRetorno.FromJSONObject(LJSON);
 end;

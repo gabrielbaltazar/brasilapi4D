@@ -8,6 +8,14 @@ uses
 type
   EBrasil4DException = class(Exception);
 
+  EBrasil4DBankException = class(EBrasil4DException)
+  private
+    FCode: Integer;
+  public
+    constructor Create(ACode: Integer; AMessage: string); reintroduce;
+    property Code: Integer read FCode;
+  end;
+
   EBrasil4DCepException = class(EBrasil4DException)
   private
     FCep: string;
@@ -152,6 +160,14 @@ constructor EBrasil4DFIPEException.Create(ACodigoFipe, AMessage: string);
 begin
   inherited Create(AMessage);
   FCodigoFipe := ACodigoFipe;
+end;
+
+{ EBrasil4DBankException }
+
+constructor EBrasil4DBankException.Create(ACode: Integer; AMessage: string);
+begin
+  inherited Create(AMessage);
+  FCode := ACode;
 end;
 
 end.

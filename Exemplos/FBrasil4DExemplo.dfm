@@ -30,9 +30,11 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
     Top = 41
     Width = 992
     Height = 383
-    ActivePage = tsFIPE
+    ActivePage = tsTaxas
     Align = alClient
     TabOrder = 1
+    ExplicitWidth = 988
+    ExplicitHeight = 382
     object tsBank: TTabSheet
       Caption = 'Bank'
       object Panel3: TPanel
@@ -287,7 +289,7 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitTop = 8
+        ExplicitWidth = 980
         object Label12: TLabel
           Left = 16
           Top = 11
@@ -339,6 +341,8 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
         Align = alClient
         ScrollBars = ssVertical
         TabOrder = 1
+        ExplicitWidth = 980
+        ExplicitHeight = 274
       end
     end
     object tsIBGE: TTabSheet
@@ -462,7 +466,6 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitWidth = 980
         object Label9: TLabel
           Left = 16
           Top = 11
@@ -538,8 +541,6 @@ object frmBrasil4DExemplo: TfrmBrasil4DExemplo
         Align = alClient
         ScrollBars = ssVertical
         TabOrder = 1
-        ExplicitWidth = 980
-        ExplicitHeight = 274
       end
     end
     object tsRegistroBR: TTabSheet

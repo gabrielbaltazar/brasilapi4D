@@ -448,6 +448,7 @@ end;
 
 procedure TfrmBrasil4DExemplo.FormCreate(Sender: TObject);
 begin
+  pgcBrasilAPI.ActivePageIndex := 0;
   edtAno.Text := IntToStr(YearOf(Now));
 end;
 
