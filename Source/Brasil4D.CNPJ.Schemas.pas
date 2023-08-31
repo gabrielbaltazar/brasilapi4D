@@ -53,6 +53,7 @@ type
     FDataSituacaoEspecial: TDateTime;
     FCnaesSecundarios: TObjectList<TBrasil4DCNPJSchemaCnae>;
     FQSA: TObjectList<TBrasil4DCNPJSchemaQSA>;
+    FCodigoMunicipioIBGE: String;
   public
     constructor Create;
     destructor Destroy; override;
@@ -97,6 +98,7 @@ type
     property DataSituacaoEspecial: TDateTime read FDataSituacaoEspecial write FDataSituacaoEspecial;
     property CnaesSecundarios: TObjectList<TBrasil4DCNPJSchemaCnae> read FCnaesSecundarios write FCnaesSecundarios;
     property QSA: TObjectList<TBrasil4DCNPJSchemaQSA> read FQSA write FQSA;
+    property CodigoMunicipioIBGE : String Read FCodigoMunicipioIBGE Write FCodigoMunicipioIBGE;
   end;
 
   TBrasil4DCNPJSchemaCnae = class(TBrasil4DSchema)
@@ -213,6 +215,7 @@ begin
   FOpcaoPeloMei := AJSONObject.ValueAsBoolean('opcao_pelo_mei');
   FSituacaoEspecial := AJSONObject.ValueAsString('situacao_especial');
   FDataSituacaoEspecial := AJSONObject.ValueAsDateTime('data_situacao_especial');
+  FCodigoMunicipioIBGE := AJSONObject.ValueAsString('codigo_municipio_ibge');
 
   FreeAndNil(FCnaesSecundarios);
   FreeAndNil(FQSA);
